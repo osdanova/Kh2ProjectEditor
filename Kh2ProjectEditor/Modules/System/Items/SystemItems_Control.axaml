@@ -1,0 +1,171 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:common="clr-namespace:Kh2ProjectEditor.Modules.Common"
+			 xmlns:local="clr-namespace:Kh2ProjectEditor.Modules.System.Items"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Kh2ProjectEditor.SystemItems_Control">
+
+	<UserControl.Resources>
+		<common:World_Converter x:Key="WorldConverter"/>
+		<local:SystemItemsType_Converter x:Key="TypeConverter"/>
+		<local:SystemItemsRank_Converter x:Key="RankConverter"/>
+		<local:SystemItemsPrizebox_Converter x:Key="PrizeboxConverter"/>
+		<local:SystemItemsAbilityType_Converter x:Key="AbilityTypeConverter"/>
+	</UserControl.Resources>
+	
+	<Grid RowDefinitions="*,100">
+		<Grid Grid.Row="0" ColumnDefinitions="*,*">
+			
+			<!-- Items -->
+			<Grid Grid.Column="0" RowDefinitions="100,*">
+				<StackPanel Grid.Row="0" Orientation="Horizontal">
+					<RadioButton GroupName="CategoryParams" IsChecked="{Binding ShowConsumable}"  Content="Consumable" Margin="20,0,0,0"/>
+					<RadioButton GroupName="CategoryParams" IsChecked="{Binding ShowReport}"  Content="Report" Margin="20,0,0,0"/>
+					<RadioButton GroupName="CategoryParams" IsChecked="{Binding ShowSynthesis}"  Content="Synthesis" Margin="20,0,0,0"/>
+					<RadioButton GroupName="CategoryParams" IsChecked="{Binding ShowMagic}"  Content="Magic" Margin="20,0,0,0"/>
+					<RadioButton GroupName="CategoryParams" IsChecked="{Binding ShowAbility}" Content="Ability" Margin="20,0,0,0"/>
+					<RadioButton GroupName="CategoryParams" IsChecked="{Binding ShowEquipment}"  Content="Equipment" Margin="20,0,0,0"/>
+					<RadioButton GroupName="CategoryParams" IsChecked="{Binding ShowMap}"  Content="Map" Margin="20,0,0,0"/>
+					<RadioButton GroupName="CategoryParams" IsChecked="{Binding ShowWeapon}"  Content="Weapon" Margin="20,0,0,0"/>
+				</StackPanel>
+				<DataGrid Grid.Row="1" Margin="20" Name="ItemsGrid"
+						ItemsSource="{Binding DisplayedItems, Mode=TwoWay}"
+						GridLinesVisibility="All" BorderThickness="1" BorderBrush="Gray">
+					<DataGrid.Columns>
+
+						<!-- Id -->
+						<DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+
+						<DataGridTemplateColumn Header="Type">
+							<DataGridTemplateColumn.CellTemplate>
+								<DataTemplate>
+									<ComboBox HorizontalAlignment="Stretch"
+											  SelectedItem="{Binding Type, Converter={StaticResource TypeConverter}, Mode=TwoWay}"
+											  ItemsSource="{Binding #ItemsGrid.DataContext.ItemTypeOptions}"
+									  />
+								</DataTemplate>
+							</DataGridTemplateColumn.CellTemplate>
+						</DataGridTemplateColumn>
+						<DataGridTextColumn Width="5" Header="" Binding="{Binding Type, Converter={StaticResource TypeConverter}}" IsReadOnly="True"/>
+
+						<DataGridTextColumn IsVisible="{Binding ShowAbility}" Header="Id" Binding="{Binding AbilityId}"/>
+
+						<DataGridTemplateColumn IsVisible="{Binding ShowAbility}" Header="Type">
+							<DataGridTemplateColumn.CellTemplate>
+								<DataTemplate>
+									<ComboBox HorizontalAlignment="Stretch"
+											  SelectedItem="{Binding AbiType, Converter={StaticResource AbilityTypeConverter}, Mode=TwoWay}"
+											  ItemsSource="{Binding #ItemsGrid.DataContext.ItemAbilityTypeOptions}"
+									  />
+								</DataTemplate>
+							</DataGridTemplateColumn.CellTemplate>
+						</DataGridTemplateColumn>
+						<DataGridTextColumn IsVisible="{Binding ShowAbility}" Width="5" Header="" Binding="{Binding AbiType, Converter={StaticResource AbilityTypeConverter}}" IsReadOnly="True"/>
+
+						<DataGridTextColumn IsVisible="{Binding ShowAbility}" Header="Ap" Binding="{Binding AbilityAp}"/>
+						<DataGridTextColumn IsVisible="{Binding ShowConsumable}" Header="Cure Rate" Binding="{Binding ConsumableCureRate}"/>
+						<DataGridTextColumn IsVisible="{Binding ShowConsumable}" Header="Effect" Binding="{Binding ConsumableEffect}"/>
+						<DataGridTextColumn IsVisible="{Binding ShowEquipment}" Header="Param Id" Binding="{Binding EquipmentParam}"/>
+						<DataGridTextColumn IsVisible="{Binding ShowMagic}" Header="Id" Binding="{Binding MagicId}"/>
+						<DataGridTextColumn IsVisible="{Binding ShowSynthesis}" Header="Type" Binding="{Binding SynthesisType}"/>
+
+						<DataGridTemplateColumn IsVisible="{Binding ShowSynthesis}" Header="Rank">
+							<DataGridTemplateColumn.CellTemplate>
+								<DataTemplate>
+									<ComboBox HorizontalAlignment="Stretch"
+											  SelectedItem="{Binding SynthesisRank, Converter={StaticResource RankConverter}, Mode=TwoWay}"
+											  ItemsSource="{Binding #ItemsGrid.DataContext.ItemRankOptions}"
+									  />
+								</DataTemplate>
+							</DataGridTemplateColumn.CellTemplate>
+						</DataGridTemplateColumn>
+						<DataGridTextColumn IsVisible="{Binding ShowSynthesis}" Width="5" Header="" Binding="{Binding SynthesisRank, Converter={StaticResource RankConverter}}" IsReadOnly="True"/>
+
+						<DataGridTextColumn IsVisible="{Binding ShowReport}" Header="Id" Binding="{Binding ReportId}"/>
+						<DataGridTextColumn IsVisible="{Binding ShowWeapon}" Header="Id" Binding="{Binding WeaponId}"/>
+						<DataGridTextColumn IsVisible="{Binding ShowWeapon}" Header="Param Id" Binding="{Binding WeaponParam}"/>
+
+						<DataGridTemplateColumn IsVisible="{Binding ShowMap}" Header="World">
+							<DataGridTemplateColumn.CellTemplate>
+								<DataTemplate>
+									<ComboBox HorizontalAlignment="Stretch"
+											  SelectedItem="{Binding MapWorld, Converter={StaticResource WorldConverter}, Mode=TwoWay}"
+											  ItemsSource="{Binding #ItemsGrid.DataContext.WorldOptions}"
+									  />
+								</DataTemplate>
+							</DataGridTemplateColumn.CellTemplate>
+						</DataGridTemplateColumn>
+						<DataGridTextColumn IsVisible="{Binding ShowMap}" Width="5" Header="" Binding="{Binding MapWorld, Converter={StaticResource WorldConverter}}" IsReadOnly="True"/>
+
+						<DataGridTextColumn Header="" Binding="{Binding Name}"/>
+						<DataGridTextColumn Header="NameId" Binding="{Binding NameId}"/>
+						<DataGridTextColumn Header="" Binding="{Binding Description}"/>
+						<DataGridTextColumn Header="DescriptionId" Binding="{Binding DescriptionId}"/>
+						<DataGridTextColumn Header="BuyPrice" Binding="{Binding BuyPrice}"/>
+						<DataGridTextColumn Header="SellPrice" Binding="{Binding SellPrice}"/>
+						<DataGridTextColumn Header="" Binding="{Binding CommandName}"/>
+						<DataGridTextColumn Header="CommandId" Binding="{Binding CommandId}"/>
+						<DataGridTextColumn Header="Slot" Binding="{Binding Slot}"/>
+						<DataGridTextColumn Header="Picture" Binding="{Binding Picture}"/>
+
+						<DataGridTemplateColumn Header="Prizebox">
+							<DataGridTemplateColumn.CellTemplate>
+								<DataTemplate>
+									<ComboBox HorizontalAlignment="Stretch"
+											  SelectedItem="{Binding Prizebox, Converter={StaticResource PrizeboxConverter}, Mode=TwoWay}"
+											  ItemsSource="{Binding #ItemsGrid.DataContext.ItemPrizeboxOptions}"
+									  />
+								</DataTemplate>
+							</DataGridTemplateColumn.CellTemplate>
+						</DataGridTemplateColumn>
+						<DataGridTextColumn Width="5" Header="" Binding="{Binding Prizebox, Converter={StaticResource PrizeboxConverter}}" IsReadOnly="True"/>
+
+						<DataGridTextColumn Header="Icon" Binding="{Binding Icon}"/>
+
+					</DataGrid.Columns>
+				</DataGrid>
+			</Grid>
+			
+
+			<!-- Params -->
+			<DataGrid Grid.Column="1" Margin="20" Name="ParamsGrid"
+						ItemsSource="{Binding LoadedParams, Mode=TwoWay}"
+						GridLinesVisibility="All" BorderThickness="1" BorderBrush="Gray">
+				<DataGrid.Columns>
+
+					<!-- Id -->
+					<DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+					<DataGridTextColumn Header="" Binding="{Binding Ability}"/>
+					<DataGridTextColumn Header="AbilityId" Binding="{Binding AbilityId}"/>
+					<DataGridTextColumn Header="Strength" Binding="{Binding Strength}"/>
+					<DataGridTextColumn Header="Magic" Binding="{Binding Magic}"/>
+					<DataGridTextColumn Header="Defense" Binding="{Binding Defense}"/>
+					<DataGridTextColumn Header="AP" Binding="{Binding AbilityPoints}"/>
+					<DataGridTextColumn Header="PhysicalResistance" Binding="{Binding PhysicalResistance}"/>
+					<DataGridTextColumn Header="FireResistance" Binding="{Binding FireResistance}"/>
+					<DataGridTextColumn Header="IceResistance" Binding="{Binding IceResistance}"/>
+					<DataGridTextColumn Header="LightningResistance" Binding="{Binding LightningResistance}"/>
+					<DataGridTextColumn Header="DarkResistance" Binding="{Binding DarkResistance}"/>
+					<DataGridTextColumn Header="NeutralResistance" Binding="{Binding NeutralResistance}"/>
+					<DataGridTextColumn Header="GeneralResistance" Binding="{Binding GeneralResistance}"/>
+
+				</DataGrid.Columns>
+
+			</DataGrid>
+			
+		</Grid>
+		<Grid Grid.Row="1" ColumnDefinitions="*,*">
+			<StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left">
+				<Label VerticalAlignment="Center" Margin="30,0,0,0">Filter</Label>
+				<TextBox Text="{Binding FilterText}" Height="20" Width="100" Margin="10,0,0,0"></TextBox>
+				<Button Click="Button_ApplyFilter" Margin="30,0,0,0">Apply</Button>
+			</StackPanel>
+			<StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+				<Button Click="Button_Save" Margin="0,0,30,0">Save</Button>
+			</StackPanel>
+		</Grid>
+	</Grid>
+	
+</UserControl>

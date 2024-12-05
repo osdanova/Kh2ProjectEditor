@@ -1,0 +1,81 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:common="clr-namespace:Kh2ProjectEditor.Modules.Common"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Kh2ProjectEditor.SystemAreaInfo_Control">
+
+	<UserControl.Resources>
+		<common:World_Converter x:Key="WorldConverter"/>
+	</UserControl.Resources>
+
+	<Grid RowDefinitions="40,*,50" Name="TopGrid">
+		<StackPanel Grid.Row="0" Orientation="Horizontal" Margin="20,0,0,0">
+			<ComboBox HorizontalAlignment="Stretch"
+									  SelectedItem="{Binding SelectedWorld, Converter={StaticResource WorldConverter}, Mode=TwoWay}"
+                                      ItemsSource="{Binding #TopGrid.DataContext.WorldOptions}"
+									  />
+			<CheckBox IsChecked="{Binding ShowFlags}" Margin="20,0,0,0">Flags</CheckBox>
+			<CheckBox IsChecked="{Binding ShowEffects}" Margin="20,0,0,0">Effects</CheckBox>
+			<CheckBox IsChecked="{Binding ShowBgm1}" Margin="20,0,0,0">BGM 1</CheckBox>
+			<CheckBox IsChecked="{Binding ShowBgm2}" Margin="20,0,0,0">BGM 2</CheckBox>
+			<CheckBox IsChecked="{Binding ShowBgm3}" Margin="20,0,0,0">BGM 3</CheckBox>
+			<CheckBox IsChecked="{Binding ShowBgm4}" Margin="20,0,0,0">BGM 4</CheckBox>
+			<CheckBox IsChecked="{Binding ShowBgm5}" Margin="20,0,0,0">BGM 5</CheckBox>
+			<CheckBox IsChecked="{Binding ShowBgm6}" Margin="20,0,0,0">BGM 6</CheckBox>
+			<CheckBox IsChecked="{Binding ShowBgm7}" Margin="20,0,0,0">BGM 7</CheckBox>
+			<CheckBox IsChecked="{Binding ShowBgm8}" Margin="20,0,0,0">BGM 8</CheckBox>
+		</StackPanel>
+		<!-- TABLE -->
+		<DataGrid Grid.Row="1" Margin="20" Name="DGrid"
+					ItemsSource="{Binding DisplayAreaInfos, Mode=TwoWay}"
+					GridLinesVisibility="All" BorderThickness="1" BorderBrush="Gray">
+
+			<DataGrid.Columns>
+
+				<DataGridTextColumn Header="Area" Binding="{Binding RoomName}"/>
+				
+				<!-- Flags -->
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowFlags}" Header="Known Area" Binding="{Binding IsKnownArea}"/>
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowFlags}" Header="Indoor Area" Binding="{Binding IndoorArea}"/>
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowFlags}" Header="Monochrome" Binding="{Binding Monochrome}"/>
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowFlags}" Header="No Shadow" Binding="{Binding NoShadow}"/>
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowFlags}" Header="Has Glow" Binding="{Binding HasGlow}"/>
+				
+				<DataGridTextColumn IsVisible="{Binding ShowEffects}" Header="reverb" Binding="{Binding Reverb}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowEffects}" Header="backgroundSoundEffect1" Binding="{Binding BackgroundSoundEffect1}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowEffects}" Header="backgroundSoundEffect2" Binding="{Binding BackgroundSoundEffect2}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowEffects}" Header="voice" Binding="{Binding Voice}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowBgm1}" Header="bgmField1" Binding="{Binding BgmField1}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowBgm1}" Header="bgmBattle1" Binding="{Binding BgmBattle1}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowBgm2}" Header="bgmField2" Binding="{Binding BgmField2}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowBgm2}" Header="bgmBattle2" Binding="{Binding BgmBattle2}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowBgm3}" Header="bgmField3" Binding="{Binding BgmField3}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowBgm3}" Header="bgmBattle3" Binding="{Binding BgmBattle3}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowBgm4}" Header="bgmField4" Binding="{Binding BgmField4}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowBgm4}" Header="bgmBattle4" Binding="{Binding BgmBattle4}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowBgm5}" Header="bgmField5" Binding="{Binding BgmField5}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowBgm5}" Header="bgmBattle5" Binding="{Binding BgmBattle5}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowBgm6}" Header="bgmField6" Binding="{Binding BgmField6}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowBgm6}" Header="bgmBattle6" Binding="{Binding BgmBattle6}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowBgm7}" Header="bgmField7" Binding="{Binding BgmField7}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowBgm7}" Header="bgmBattle7" Binding="{Binding BgmBattle7}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowBgm8}" Header="bgmField8" Binding="{Binding BgmField8}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowBgm8}" Header="bgmBattle8" Binding="{Binding BgmBattle8}"/>
+				<DataGridTextColumn Header="navigationMapItem" Binding="{Binding NavigationMapItem}"/>
+				<DataGridTextColumn Header="command" Binding="{Binding Command}"/>
+
+			</DataGrid.Columns>
+
+		</DataGrid>
+		<Grid Grid.Row="2" ColumnDefinitions="*,*">
+			<StackPanel Grid.Column="0" Orientation="Horizontal">
+			</StackPanel>
+			<StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+				<Button Click="Button_Save" Margin="0,0,30,0">Save</Button>
+			</StackPanel>
+		</Grid>
+	</Grid>
+	
+</UserControl>

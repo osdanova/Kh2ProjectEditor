@@ -1,0 +1,52 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Kh2ProjectEditor.SystemFontStyles_Control">
+
+	<Grid RowDefinitions="30,*,50">
+		<StackPanel Grid.Row="0" Orientation="Horizontal" Margin="20,0,0,0">
+		</StackPanel>
+		<!-- TABLE -->
+		<DataGrid Grid.Row="1" Margin="20" Name="DGrid"
+					ItemsSource="{Binding LoadedEntries, Mode=TwoWay}"
+					GridLinesVisibility="All" BorderThickness="1" BorderBrush="Gray">
+
+			<DataGrid.Columns>
+
+				<!-- Id -->
+				<DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+				<DataGridTextColumn Header="Color1" Binding="{Binding Color1}"/>
+				<DataGridTextColumn Header="Color2" Binding="{Binding Color2}"/>
+				<DataGridTextColumn Header="Color3" Binding="{Binding Color3}"/>
+				<DataGridTextColumn Header="Color4" Binding="{Binding Color4}"/>
+				<DataGridTextColumn Header="Color5" Binding="{Binding Color5}"/>
+				<DataGridTextColumn Header="Color6" Binding="{Binding Color6}"/>
+				<DataGridTextColumn Header="Color7" Binding="{Binding Color7}"/>
+				<DataGridTextColumn Header="Color8" Binding="{Binding Color8}"/>
+				<DataGridTextColumn Header="Color9" Binding="{Binding Color9}"/>
+				<DataGridTextColumn Header="Color10" Binding="{Binding Color10}"/>
+				<DataGridTextColumn Header="Color11" Binding="{Binding Color11}"/>
+				<DataGridTextColumn Header="Color12" Binding="{Binding Color12}"/>
+				<DataGridTextColumn Header="Color13" Binding="{Binding Color13}"/>
+				<DataGridTextColumn Header="Color14" Binding="{Binding Color14}"/>
+				<DataGridTextColumn Header="Color15" Binding="{Binding Color15}"/>
+				<DataGridTextColumn Header="Color16" Binding="{Binding Color16}"/>
+				<DataGridTextColumn Header="Color17" Binding="{Binding Color17}"/>
+				<DataGridTextColumn Header="Color18" Binding="{Binding Color18}"/>
+				<DataGridTextColumn Header="Color19" Binding="{Binding Color19}"/>
+
+			</DataGrid.Columns>
+
+		</DataGrid>
+		<Grid Grid.Row="2" ColumnDefinitions="*,*">
+			<StackPanel Grid.Column="0" Orientation="Horizontal">
+			</StackPanel>
+			<StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+				<Button Click="Button_Save" Margin="0,0,30,0">Save</Button>
+			</StackPanel>
+		</Grid>
+	</Grid>
+	
+</UserControl>

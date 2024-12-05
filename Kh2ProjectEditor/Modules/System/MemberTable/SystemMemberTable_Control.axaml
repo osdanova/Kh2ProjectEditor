@@ -1,0 +1,117 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:common="clr-namespace:Kh2ProjectEditor.Modules.Common"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Kh2ProjectEditor.SystemMemberTable_Control">
+
+	<UserControl.Resources>
+		<common:World_Converter x:Key="WorldConverter"/>
+	</UserControl.Resources>
+	
+	<Grid RowDefinitions="30,*,50">
+		<StackPanel Grid.Row="0" Orientation="Horizontal" Margin="20,0,0,0">
+			<CheckBox IsChecked="{Binding ShowConditions}" Margin="20,0,0,0">Conditions</CheckBox>
+			<CheckBox IsChecked="{Binding ShowMemorySize}" Margin="20,0,0,0">Memory Size</CheckBox>
+			<CheckBox IsChecked="{Binding ShowParty}" Margin="20,0,0,0">Party</CheckBox>
+			<CheckBox IsChecked="{Binding ShowForms}" Margin="20,0,0,0">Forms</CheckBox>
+			<CheckBox IsChecked="{Binding ShowHp}" Margin="20,0,0,0">HP</CheckBox>
+		</StackPanel>
+		<Grid Grid.Row="1" RowDefinitions="*,250">
+			<!-- Members -->
+			<DataGrid Grid.Row="0" Margin="20" Name="MemberGrid"
+						ItemsSource="{Binding LoadedEntries, Mode=TwoWay}"
+						GridLinesVisibility="All" BorderThickness="1" BorderBrush="Gray">
+
+				<DataGrid.Columns>
+
+					<!-- Id -->
+					<DataGridTemplateColumn Header="World">
+						<DataGridTemplateColumn.CellTemplate>
+							<DataTemplate>
+								<ComboBox HorizontalAlignment="Stretch"
+										  SelectedItem="{Binding WorldId, Converter={StaticResource WorldConverter}, Mode=TwoWay}"
+										  ItemsSource="{Binding #MemberGrid.DataContext.WorldOptions}"
+									  />
+							</DataTemplate>
+						</DataGridTemplateColumn.CellTemplate>
+					</DataGridTemplateColumn>
+					<DataGridTextColumn Width="5" Header="" Binding="{Binding WorldId, Converter={StaticResource WorldConverter}}" IsReadOnly="True"/>
+					
+					<DataGridTextColumn IsVisible="{Binding ShowConditions}" Header="" Binding="{Binding CheckStoryFlagDesc}"/>
+					<DataGridTextColumn IsVisible="{Binding ShowConditions}" Header="Story Flag" Binding="{Binding CheckStoryFlag}"/>
+					<DataGridTextColumn IsVisible="{Binding ShowConditions}" Header="" Binding="{Binding CheckStoryFlagNegationDesc}"/>
+					<DataGridTextColumn IsVisible="{Binding ShowConditions}" Header="Story Flag Negation" Binding="{Binding CheckStoryFlagNegation}"/>
+					<DataGridTextColumn IsVisible="{Binding ShowConditions}" Header="Area" Binding="{Binding CheckArea}"/>
+					<DataGridTextColumn IsVisible="{Binding ShowMemorySize}" Header="Player Size" Binding="{Binding PlayerSize}"/>
+					<DataGridTextColumn IsVisible="{Binding ShowMemorySize}" Header="Friend Size" Binding="{Binding FriendSize}"/>
+					<DataGridTextColumn IsVisible="{Binding ShowParty}" Header="" Binding="{Binding PlayerDesc}" IsReadOnly="True"/>
+					<DataGridTextColumn IsVisible="{Binding ShowParty}" Header="Player" Binding="{Binding Player}"/>
+					<DataGridTextColumn IsVisible="{Binding ShowParty}" Header="" Binding="{Binding Party1Desc}" IsReadOnly="True"/>
+					<DataGridTextColumn IsVisible="{Binding ShowParty}" Header="Party 1" Binding="{Binding Party1}"/>
+					<DataGridTextColumn IsVisible="{Binding ShowParty}" Header="" Binding="{Binding Party2Desc}" IsReadOnly="True"/>
+					<DataGridTextColumn IsVisible="{Binding ShowParty}" Header="Party 2" Binding="{Binding Party2}"/>
+					<DataGridTextColumn IsVisible="{Binding ShowParty}" Header="" Binding="{Binding Party3Desc}" IsReadOnly="True"/>
+					<DataGridTextColumn IsVisible="{Binding ShowParty}" Header="Party 3" Binding="{Binding Party3}"/>
+					<DataGridTextColumn IsVisible="{Binding ShowParty}" Header="" Binding="{Binding MickeyDesc}" IsReadOnly="True"/>
+					<DataGridTextColumn IsVisible="{Binding ShowParty}" Header="Mickey" Binding="{Binding Mickey}"/>
+					<DataGridTextColumn IsVisible="{Binding ShowForms}" Header="" Binding="{Binding ValorDesc}" IsReadOnly="True"/>
+					<DataGridTextColumn IsVisible="{Binding ShowForms}" Header="Valor" Binding="{Binding Valor}"/>
+					<DataGridTextColumn IsVisible="{Binding ShowForms}" Header="" Binding="{Binding WisdomDesc}" IsReadOnly="True"/>
+					<DataGridTextColumn IsVisible="{Binding ShowForms}" Header="Wisdom" Binding="{Binding Wisdom}"/>
+					<DataGridTextColumn IsVisible="{Binding ShowForms}" Header="" Binding="{Binding LimitDesc}" IsReadOnly="True"/>
+					<DataGridTextColumn IsVisible="{Binding ShowForms}" Header="Limit" Binding="{Binding Limit}"/>
+					<DataGridTextColumn IsVisible="{Binding ShowForms}" Header="" Binding="{Binding MasterDesc}" IsReadOnly="True"/>
+					<DataGridTextColumn IsVisible="{Binding ShowForms}" Header="Master" Binding="{Binding Master}"/>
+					<DataGridTextColumn IsVisible="{Binding ShowForms}" Header="" Binding="{Binding FinalDesc}" IsReadOnly="True"/>
+					<DataGridTextColumn IsVisible="{Binding ShowForms}" Header="Final" Binding="{Binding Final}"/>
+					<DataGridTextColumn IsVisible="{Binding ShowForms}" Header="" Binding="{Binding AntiDesc}" IsReadOnly="True"/>
+					<DataGridTextColumn IsVisible="{Binding ShowForms}" Header="Anti" Binding="{Binding Anti}"/>
+					<DataGridTextColumn IsVisible="{Binding ShowHp}" Header="" Binding="{Binding PlayerHpDesc}" IsReadOnly="True"/>
+					<DataGridTextColumn IsVisible="{Binding ShowHp}" Header="Player HP" Binding="{Binding PlayerHp}"/>
+					<DataGridTextColumn IsVisible="{Binding ShowHp}" Header="" Binding="{Binding ValorHpDesc}" IsReadOnly="True"/>
+					<DataGridTextColumn IsVisible="{Binding ShowHp}" Header="Valor HP" Binding="{Binding ValorHp}"/>
+					<DataGridTextColumn IsVisible="{Binding ShowHp}" Header="" Binding="{Binding WisdomHpDesc}" IsReadOnly="True"/>
+					<DataGridTextColumn IsVisible="{Binding ShowHp}" Header="Wisdom HP" Binding="{Binding WisdomHp}"/>
+					<DataGridTextColumn IsVisible="{Binding ShowHp}" Header="" Binding="{Binding LimitHpDesc}" IsReadOnly="True"/>
+					<DataGridTextColumn IsVisible="{Binding ShowHp}" Header="Limit HP" Binding="{Binding LimitHp}"/>
+					<DataGridTextColumn IsVisible="{Binding ShowHp}" Header="" Binding="{Binding MasterHpDesc}" IsReadOnly="True"/>
+					<DataGridTextColumn IsVisible="{Binding ShowHp}" Header="Master HP" Binding="{Binding MasterHp}"/>
+					<DataGridTextColumn IsVisible="{Binding ShowHp}" Header="" Binding="{Binding FinalHpDesc}" IsReadOnly="True"/>
+					<DataGridTextColumn IsVisible="{Binding ShowHp}" Header="Final HP" Binding="{Binding FinalHp}"/>
+					<DataGridTextColumn IsVisible="{Binding ShowHp}" Header="" Binding="{Binding PlayerHp2Desc}" IsReadOnly="True"/>
+					<DataGridTextColumn IsVisible="{Binding ShowHp}" Header="Player HP 2" Binding="{Binding PlayerHp2}"/>
+
+				</DataGrid.Columns>
+
+			</DataGrid>
+			<!-- Sets -->
+			<DataGrid Grid.Row="1" Margin="20" Name="SetGrid"
+						ItemsSource="{Binding LoadedSets, Mode=TwoWay}"
+						GridLinesVisibility="All" BorderThickness="1" BorderBrush="Gray" HorizontalAlignment="Left">
+
+				<DataGrid.Columns>
+
+					<!-- Id -->
+					<DataGridTextColumn Header="Description" Binding="{Binding Description}" IsReadOnly="True"/>
+					<DataGridTextColumn Header="Player" Binding="{Binding Player}"/>
+					<DataGridTextColumn Header="Party 1" Binding="{Binding Party1}"/>
+					<DataGridTextColumn Header="Party 2" Binding="{Binding Party2}"/>
+					<DataGridTextColumn Header="Party 3" Binding="{Binding Party3}"/>
+
+				</DataGrid.Columns>
+
+			</DataGrid>
+		</Grid>
+
+		<Grid Grid.Row="2" ColumnDefinitions="*,*">
+			<StackPanel Grid.Column="0" Orientation="Horizontal">
+			</StackPanel>
+			<StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+				<Button Click="Button_Save" Margin="0,0,30,0">Save</Button>
+			</StackPanel>
+		</Grid>
+	</Grid>
+	
+</UserControl>

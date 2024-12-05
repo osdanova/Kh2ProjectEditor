@@ -1,0 +1,138 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:local="clr-namespace:Kh2ProjectEditor.Modules.System.Commands"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Kh2ProjectEditor.SystemCommands_Control">
+
+	<UserControl.Resources>
+		<local:SystemCommandsIcon_Converter x:Key="IconConverter"/>
+		<local:SystemCommandsCamera_Converter x:Key="CameraConverter"/>
+		<local:SystemCommandsReceiver_Converter x:Key="ReceiverConverter"/>
+		<local:SystemCommandsAction_Converter x:Key="ActionConverter"/>
+	</UserControl.Resources>
+	
+	<Grid RowDefinitions="30,*,50">
+		<StackPanel Grid.Row="0" Orientation="Horizontal" Margin="20,0,0,0">
+			<CheckBox IsChecked="{Binding ShowBasic}" Margin="20,0,0,0">Basic</CheckBox>
+			<CheckBox IsChecked="{Binding ShowExtended}" Margin="20,0,0,0">Extended</CheckBox>
+			<CheckBox IsChecked="{Binding ShowFlags}" Margin="20,0,0,0">Flags</CheckBox>
+		</StackPanel>
+		<!-- TABLE -->
+		<DataGrid Grid.Row="1" Margin="20" Name="DGrid"
+					ItemsSource="{Binding DisplayEntries, Mode=TwoWay}"
+					GridLinesVisibility="All" BorderThickness="1" BorderBrush="Gray">
+
+			<DataGrid.Columns>
+
+				<!-- Id -->
+				<DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True"/>
+				<DataGridTextColumn Header="Message" Binding="{Binding CommandMessage}" IsReadOnly="True"/>
+				<DataGridTextColumn Header="Message Id" Binding="{Binding MessageId}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowBasic}" Header="SubMenu" Binding="{Binding SubMenu}"/>
+
+				<!-- Icon -->
+				<DataGridTemplateColumn IsVisible="{Binding ShowBasic}" Header="Icon">
+					<DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<ComboBox HorizontalAlignment="Stretch"
+									  SelectedItem="{Binding CmdIcon, Converter={StaticResource IconConverter}, Mode=TwoWay}"
+                                      ItemsSource="{Binding #DGrid.DataContext.EntryIconOptions}"
+									  />
+						</DataTemplate>
+					</DataGridTemplateColumn.CellTemplate>
+				</DataGridTemplateColumn>
+				<DataGridTextColumn IsVisible="{Binding ShowBasic}" Width="5" Header="" Binding="{Binding CmdIcon, Converter={StaticResource IconConverter}}" IsReadOnly="True"/>
+
+				<DataGridTextColumn IsVisible="{Binding ShowBasic}" Header="Cost" Binding="{Binding Cost}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowExtended}" Header="Execute" Binding="{Binding Execute}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowExtended}" Header="Argument" Binding="{Binding Argument}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowExtended}" Header="Range" Binding="{Binding Range}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowExtended}" Header="Dir" Binding="{Binding Dir}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowExtended}" Header="Dir Range" Binding="{Binding DirRange}"/>
+
+				<!-- Camera -->
+				<DataGridTemplateColumn IsVisible="{Binding ShowExtended}" Header="Camera">
+					<DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<ComboBox HorizontalAlignment="Stretch"
+									  SelectedItem="{Binding CmdCamera, Converter={StaticResource CameraConverter}, Mode=TwoWay}"
+                                      ItemsSource="{Binding #DGrid.DataContext.EntryCameraOptions}"
+									  />
+						</DataTemplate>
+					</DataGridTemplateColumn.CellTemplate>
+				</DataGridTemplateColumn>
+				<DataGridTextColumn IsVisible="{Binding ShowExtended}" Width="5" Header="" Binding="{Binding CmdCamera, Converter={StaticResource CameraConverter}}" IsReadOnly="True"/>
+				
+				<DataGridTextColumn IsVisible="{Binding ShowExtended}" Header="Priority" Binding="{Binding Priority}"/>
+
+				<!-- Receiver -->
+				<DataGridTemplateColumn IsVisible="{Binding ShowExtended}" Header="Receiver">
+					<DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<ComboBox HorizontalAlignment="Stretch"
+									  SelectedItem="{Binding CmdReceiver, Converter={StaticResource ReceiverConverter}, Mode=TwoWay}"
+                                      ItemsSource="{Binding #DGrid.DataContext.EntryReceiverOptions}"
+									  />
+						</DataTemplate>
+					</DataGridTemplateColumn.CellTemplate>
+				</DataGridTemplateColumn>
+				<DataGridTextColumn IsVisible="{Binding ShowExtended}" Width="5" Header="" Binding="{Binding CmdReceiver, Converter={StaticResource ReceiverConverter}}" IsReadOnly="True"/>
+				
+				<DataGridTextColumn IsVisible="{Binding ShowExtended}" Header="Time" Binding="{Binding Time}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowExtended}" Header="Require" Binding="{Binding Require}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowExtended}" Header="Mark" Binding="{Binding Mark}"/>
+
+				<!-- Action -->
+				<DataGridTemplateColumn IsVisible="{Binding ShowExtended}" Header="Action">
+					<DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<ComboBox HorizontalAlignment="Stretch"
+									  SelectedItem="{Binding CmdAction, Converter={StaticResource ActionConverter}, Mode=TwoWay}"
+                                      ItemsSource="{Binding #DGrid.DataContext.EntryActionOptions}"
+									  />
+						</DataTemplate>
+					</DataGridTemplateColumn.CellTemplate>
+				</DataGridTemplateColumn>
+				<DataGridTextColumn IsVisible="{Binding ShowExtended}" Width="5" Header="" Binding="{Binding CmdAction, Converter={StaticResource ActionConverter}}" IsReadOnly="True"/>
+
+				<DataGridTextColumn IsVisible="{Binding ShowExtended}" Header="Reaction Count" Binding="{Binding ReactionCount}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowExtended}" Header="Dist Range" Binding="{Binding DistRange}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowExtended}" Header="Score" Binding="{Binding Score}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowExtended}" Header="Disable Form" Binding="{Binding DisableForm}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowExtended}" Header="Group" Binding="{Binding Group}"/>
+
+				<!-- Flags -->
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowFlags}" Header="Cursor" Binding="{Binding Cursor}"/>
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowFlags}" Header="Land" Binding="{Binding Land}"/>
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowFlags}" Header="Force" Binding="{Binding Force}"/>
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowFlags}" Header="Combo" Binding="{Binding Combo}"/>
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowFlags}" Header="Battle" Binding="{Binding Battle}"/>
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowFlags}" Header="Secure" Binding="{Binding Secure}"/>
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowFlags}" Header="Require" Binding="{Binding RequireFlag}"/>
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowFlags}" Header="No Combo" Binding="{Binding NoCombo}"/>
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowFlags}" Header="Drive" Binding="{Binding Drive}"/>
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowFlags}" Header="Short" Binding="{Binding Short}"/>
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowFlags}" Header="Disable Sora" Binding="{Binding DisableSora}"/>
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowFlags}" Header="Disable Roxas" Binding="{Binding DisableRoxas}"/>
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowFlags}" Header="Disable Lion Sora" Binding="{Binding DisableLionSora}"/>
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowFlags}" Header="Disable Limit Form" Binding="{Binding DisableLimitForm}"/>
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowFlags}" Header="Disable Skateboard" Binding="{Binding DisableSkateboard}"/>
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowFlags}" Header="In Battle Only" Binding="{Binding InBattleOnly}"/>
+				
+			</DataGrid.Columns>
+
+		</DataGrid>
+		<Grid Grid.Row="2" ColumnDefinitions="*,*">
+			<StackPanel Grid.Column="0" Orientation="Horizontal">
+				<Label VerticalAlignment="Center" Margin="30,0,0,0">Filter</Label>
+				<TextBox Text="{Binding FilterText}" Height="20" Width="100" Margin="10,0,0,0"></TextBox>
+				<Button Click="Button_ApplyFilter" Margin="30,0,0,0">Apply</Button>
+			</StackPanel>
+			<StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+				<Button Click="Button_Save" Margin="0,0,30,0">Save</Button>
+			</StackPanel>
+		</Grid>
+	</Grid>
+</UserControl>

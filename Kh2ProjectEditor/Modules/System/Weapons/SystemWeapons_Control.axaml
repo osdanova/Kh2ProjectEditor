@@ -1,0 +1,56 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Kh2ProjectEditor.SystemWeapons_Control">
+
+	<Grid RowDefinitions="*,100">
+		<Grid Grid.Row="0" ColumnDefinitions="*,*">
+			<!-- Weapon Actors: L, R and set -->
+			<Grid Grid.Column="0" RowDefinitions="*">
+				<DataGrid Grid.Row="0" Margin="20" Name="WeaponActorGrid"
+							ItemsSource="{Binding LoadedWeaponActors, Mode=TwoWay}"
+							GridLinesVisibility="All" BorderThickness="1" BorderBrush="Gray">
+					<DataGrid.Columns>
+
+						<!-- Id -->
+						<DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+						<DataGridTextColumn IsVisible="{Binding RightWeapon}" Header="Right Weapon Motion Set" Binding="{Binding RightWeapon}"/>
+						<DataGridTextColumn IsVisible="{Binding LeftWeapon}" Header="Left Weapon Motion Set" Binding="{Binding LeftWeapon}"/>
+						<DataGridTextColumn IsVisible="{Binding SetId}" Header="Model Set Id" Binding="{Binding SetId}"/>
+
+					</DataGrid.Columns>
+				</DataGrid>
+			</Grid>
+
+			<!-- Weapon Sets -->
+			<Grid Grid.Column="1" RowDefinitions="40,*">
+				<!-- Set selector -->
+				<StackPanel Grid.Row="0" Margin="10" Orientation="Horizontal" HorizontalAlignment="Right">
+					<Label VerticalAlignment="Center">Model Set</Label>
+					<ComboBox ItemsSource="{Binding WeaponSetOptions}" SelectedItem="{Binding SelectedWeaponSet}"
+							  Margin="20,0,0,0" VerticalAlignment="Center"/>
+				</StackPanel>
+				<!-- Set objects -->
+				<DataGrid Grid.Row="1" Margin="20" Name="WeaponSetGrid"
+							ItemsSource="{Binding LoadedWeaponSet, Mode=TwoWay}"
+							GridLinesVisibility="All" BorderThickness="1" BorderBrush="Gray">
+					<DataGrid.Columns>
+
+						<!-- Id -->
+						<DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+						<DataGridTextColumn Header="" Binding="{Binding ObjectDesc}" IsReadOnly="True"/>
+						<DataGridTextColumn Header="Object Id" Binding="{Binding ObjectId}"/>
+
+					</DataGrid.Columns>
+
+				</DataGrid>
+			</Grid>
+		</Grid>
+		<StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+			<Button Click="Button_Save" Margin="0,0,30,0">Save</Button>
+		</StackPanel>
+	</Grid>
+	
+</UserControl>

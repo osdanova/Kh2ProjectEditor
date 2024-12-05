@@ -1,0 +1,75 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Kh2ProjectEditor.SystemShops_Control">
+
+	<Grid RowDefinitions="30,*,50">
+		<StackPanel Grid.Row="0" Orientation="Horizontal" Margin="20,0,0,0">
+			<CheckBox IsChecked="{Binding ShowGameFlags}" Margin="20,0,0,0">Game Flags</CheckBox>
+			<CheckBox IsChecked="{Binding ShowObject}" Margin="20,0,0,0">Object</CheckBox>
+			<CheckBox IsChecked="{Binding ShowType}" Margin="20,0,0,0">Type</CheckBox>
+			<CheckBox IsChecked="{Binding ShowProducts}" Margin="20,0,0,0">Products</CheckBox>
+		</StackPanel>
+
+		<Grid Grid.Row="1" ColumnDefinitions="*,*">
+			<!-- SHOPS -->
+			<DataGrid Grid.Column="0" Margin="20" Name="ShopGrid"
+					ItemsSource="{Binding LoadedShops, Mode=TwoWay}"
+					GridLinesVisibility="All" BorderThickness="1" BorderBrush="Gray"
+					SelectionMode="Single" SelectionChanged="ShopGrid_SelectionChanged">
+
+				<DataGrid.Columns>
+
+					<DataGridTextColumn Header="Shop Id" Binding="{Binding ShopId}"/>
+					<DataGridTextColumn Header="" Binding="{Binding Name}" IsReadOnly="True"/>
+					<DataGridTextColumn Header="Name Id" Binding="{Binding NameId}"/>
+
+					<DataGridTextColumn IsVisible="{Binding ShowGameFlags}" Binding="{Binding GameSignalId}">
+						<DataGridTextColumn.HeaderTemplate>
+							<DataTemplate>
+								<Label Content="Game Signal Id" ToolTip.Tip="The game signal that triggers the shop"/>
+							</DataTemplate>
+						</DataGridTextColumn.HeaderTemplate>
+					</DataGridTextColumn>
+
+					<DataGridTextColumn IsVisible="{Binding ShowGameFlags}" Binding="{Binding MenuFlagId}">
+						<DataGridTextColumn.HeaderTemplate>
+							<DataTemplate>
+								<Label Content="Menu Flag Id" ToolTip.Tip="The bit in the game's menu flag. Used to check if the shop was previously visited"/>
+							</DataTemplate>
+						</DataGridTextColumn.HeaderTemplate>
+					</DataGridTextColumn>
+
+					<DataGridTextColumn IsVisible="{Binding ShowObject}" Header="" Binding="{Binding ObjectDesc}" IsReadOnly="True"/>
+					<DataGridTextColumn IsVisible="{Binding ShowObject}" Header="Shopkeeper Object Id" Binding="{Binding ShopkeeperObjectId}"/>
+					<DataGridTextColumn IsVisible="{Binding ShowObject}" Header="Pos X" Binding="{Binding PosX}" IsReadOnly="True"/>
+					<DataGridTextColumn IsVisible="{Binding ShowObject}" Header="Pos Y" Binding="{Binding PosY}" IsReadOnly="True"/>
+					<DataGridTextColumn IsVisible="{Binding ShowObject}" Header="Pos Z" Binding="{Binding PosZ}" IsReadOnly="True"/>
+					<DataGridCheckBoxColumn IsVisible="{Binding ShowType}" Header="Is Shop" Binding="{Binding IsShop}" IsReadOnly="True"/>
+					<DataGridCheckBoxColumn IsVisible="{Binding ShowType}" Header="Is Moogle Workshop" Binding="{Binding IsMoogleWorkshop}" IsReadOnly="True"/>
+					<DataGridCheckBoxColumn IsVisible="{Binding ShowProducts}" Header="Weapon" Binding="{Binding SellsWeapons}" IsReadOnly="True"/>
+					<DataGridCheckBoxColumn IsVisible="{Binding ShowProducts}" Header="Armor" Binding="{Binding SellsArmors}" IsReadOnly="True"/>
+					<DataGridCheckBoxColumn IsVisible="{Binding ShowProducts}" Header="Accessory" Binding="{Binding SellsAccessories}" IsReadOnly="True"/>
+					<DataGridCheckBoxColumn IsVisible="{Binding ShowProducts}" Header="Item" Binding="{Binding SellsItems}" IsReadOnly="True"/>
+					<DataGridCheckBoxColumn IsVisible="{Binding ShowProducts}" Header="Material" Binding="{Binding SellsMaterials}" IsReadOnly="True"/>
+					<DataGridCheckBoxColumn IsVisible="{Binding ShowProducts}" Header="Specialty" Binding="{Binding IsSpecialtyShop}" IsReadOnly="True"/>
+
+				</DataGrid.Columns>
+
+			</DataGrid>
+
+			<ContentControl Grid.Column="1" Name="InventoriesFrame"/>
+		</Grid>
+		
+		<Grid Grid.Row="2" ColumnDefinitions="*,*">
+			<StackPanel Grid.Column="0" Orientation="Horizontal">
+			</StackPanel>
+			<StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+				<Button Click="Button_Save" Margin="0,0,30,0">Save</Button>
+			</StackPanel>
+		</Grid>
+	</Grid>
+	
+</UserControl>

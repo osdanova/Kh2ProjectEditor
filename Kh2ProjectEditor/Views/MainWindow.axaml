@@ -1,0 +1,93 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Kh2ProjectEditor.MainWindow"
+        Title="Kh2 Project Editor">
+	
+	<DockPanel>
+		
+		<!-- TOP MENU -->
+		<Menu DockPanel.Dock="Top">
+			<MenuItem Header="System">
+				<MenuItem Header="Reaction Commands" Click="MenuItem_SystemReactionCount"></MenuItem>
+				<MenuItem Header="Commands" Click="MenuItem_SystemCommands"></MenuItem>
+				<MenuItem Header="Weapons" Click="MenuItem_SystemWeapons"></MenuItem>
+				<MenuItem Header="Area Information" Click="MenuItem_SystemAreaInfo"></MenuItem>
+				<MenuItem Header="Items" Click="MenuItem_SystemItems"></MenuItem>
+				<MenuItem Header="Treasures" Click="MenuItem_SystemTreasures"></MenuItem>
+				<MenuItem Header="Member Table" Click="MenuItem_SystemMemberTable"></MenuItem>
+				<MenuItem Header="Font Style" Click="MenuItem_SystemFontStyles"></MenuItem>
+				<MenuItem Header="Shops" Click="MenuItem_SystemShops"></MenuItem>
+				<MenuItem Header="Skeleton"></MenuItem>
+				<MenuItem Header="Preferences">
+					<MenuItem Header="Player"></MenuItem>
+					<MenuItem Header="Form Abilities"></MenuItem>
+					<MenuItem Header="Party"></MenuItem>
+					<MenuItem Header="System"></MenuItem>
+					<MenuItem Header="Magic"></MenuItem>
+				</MenuItem>
+				<MenuItem Header="Event Params"></MenuItem>
+				<MenuItem Header="ipic" IsVisible="False"></MenuItem>
+			</MenuItem>
+			<MenuItem Header="Battle">
+				<MenuItem Header="Attack Params"></MenuItem>
+				<MenuItem Header="Party Attacks"></MenuItem>
+				<MenuItem Header="Prize Table"></MenuItem>
+				<MenuItem Header="Voice Table"></MenuItem>
+				<MenuItem Header="Level Up Bonuses"></MenuItem>
+				<MenuItem Header="Event Bonuses"></MenuItem>
+				<MenuItem Header="Battle Level"></MenuItem>
+				<MenuItem Header="Level Parameters"></MenuItem>
+				<MenuItem Header="Enemy Parameters"></MenuItem>
+				<MenuItem Header="Patterns"></MenuItem>
+				<MenuItem Header="Player Parameters"></MenuItem>
+				<MenuItem Header="Limits"></MenuItem>
+				<MenuItem Header="Summons"></MenuItem>
+				<MenuItem Header="Magic"></MenuItem>
+				<MenuItem Header="Vibration" IsVisible="False"></MenuItem>
+				<MenuItem Header="Form Levels"></MenuItem>
+				<MenuItem Header="Stop"></MenuItem>
+			</MenuItem>
+			<MenuItem Header="Jiminy">
+				<MenuItem Header="World"></MenuItem>
+				<MenuItem Header="Story" IsVisible="False"></MenuItem>
+				<MenuItem Header="Album" IsVisible="False"></MenuItem>
+				<MenuItem Header="Characters" IsVisible="False"></MenuItem>
+				<MenuItem Header="Ansem Reports" IsVisible="False"></MenuItem>
+				<MenuItem Header="Dialog" IsVisible="False"></MenuItem>
+				<MenuItem Header="Limits" IsVisible="False"></MenuItem>
+				<MenuItem Header="Minigames" IsVisible="False"></MenuItem>
+				<MenuItem Header="Quests" IsVisible="False"></MenuItem>
+				<MenuItem Header="Puzzle"></MenuItem>
+			</MenuItem>
+			<MenuItem Header="Synthesis">
+				<MenuItem Header="Recipes"></MenuItem>
+				<MenuItem Header="Unlock Conditions"></MenuItem>
+				<MenuItem Header="Levels"></MenuItem>
+				<MenuItem Header="Experience"></MenuItem>
+			</MenuItem>
+			<MenuItem Header="Object Entries" Click="MenuItem_ObjectEntries"></MenuItem>
+			<MenuItem Header="Tools"></MenuItem>
+		</Menu>
+
+		<!-- BOTTOM MENU -->
+		<Grid DockPanel.Dock="Bottom" Background="DarkGray"
+			  ColumnDefinitions="*,*">
+			<!-- Project location -->
+			<StackPanel Grid.Column="0">
+				<Button Content="{Binding ProjectPath}" Click="Button_ProjectPath"></Button>
+			</StackPanel>
+			<!-- Game Hook info -->
+			<StackPanel Grid.Column="1" HorizontalAlignment="Right">
+				<Label Content="{Binding GameHookInfo}"></Label>
+			</StackPanel>
+		</Grid>
+
+		<!-- CONTENT -->
+		<ContentControl Name="ContentFrame"/>
+		
+	</DockPanel>
+	
+</Window>

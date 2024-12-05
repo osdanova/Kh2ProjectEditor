@@ -1,0 +1,175 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:local="clr-namespace:Kh2ProjectEditor.Modules.ObjectEntries"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Kh2ProjectEditor.ObjectEntries_Control">
+
+	<UserControl.Resources>
+		<local:ObjectEntriesType_Converter x:Key="TypeConverter"/>
+		<local:ObjectEntriesShadow_Converter x:Key="ShadowConverter"/>
+		<local:ObjectEntriesForm_Converter x:Key="FormConverter"/>
+		<local:ObjectEntriesTarget_Converter x:Key="TargetConverter"/>
+	</UserControl.Resources>
+
+	<Grid RowDefinitions="30,*,50">
+		<StackPanel Grid.Row="0" Orientation="Horizontal" Margin="20,0,0,0">
+			<CheckBox IsChecked="{Binding ShowBasic}" Margin="20,0,0,0">Basic</CheckBox>
+			<CheckBox IsChecked="{Binding ShowExtended}" Margin="20,0,0,0">Extended</CheckBox>
+			<CheckBox IsChecked="{Binding ShowFlags}" Margin="20,0,0,0">Flags</CheckBox>
+			<CheckBox IsChecked="{Binding ShowSpawns}" Margin="20,0,0,0">Spawns</CheckBox>
+		</StackPanel>
+		<!-- TABLE -->
+		<DataGrid Grid.Row="1" Margin="20" Name="DGrid"
+					ItemsSource="{Binding DisplayObjectEntries, Mode=TwoWay}"
+					GridLinesVisibility="All" BorderThickness="1" BorderBrush="Gray">
+
+			<DataGrid.Columns>
+
+				<!-- Id -->
+				<DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True"/>
+
+				<!-- Type -->
+				<DataGridTemplateColumn IsVisible="{Binding ShowBasic}" Header="Type">
+					<DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<ComboBox HorizontalAlignment="Stretch"
+									  SelectedItem="{Binding Type, Converter={StaticResource TypeConverter}, Mode=TwoWay}"
+                                      ItemsSource="{Binding #DGrid.DataContext.EntryTypeOptions}"
+									  />
+						</DataTemplate>
+					</DataGridTemplateColumn.CellTemplate>
+				</DataGridTemplateColumn>
+				<DataGridTextColumn IsVisible="{Binding ShowBasic}" Width="5" Header="" Binding="{Binding Type, Converter={StaticResource TypeConverter}}" IsReadOnly="True"/>
+
+				<!-- Description -->
+				<DataGridTextColumn Header="Description" Binding="{Binding ObjectDescription}" IsReadOnly="True"/>
+				
+				<!-- Model -->
+				<DataGridTextColumn Binding="{Binding ModelName}">
+					<DataGridTextColumn.HeaderTemplate>
+						<DataTemplate>
+							<Label Content="Model Name" ToolTip.Tip="The name of a MDLX file in the obj folder"/>
+						</DataTemplate>
+					</DataGridTextColumn.HeaderTemplate>
+				</DataGridTextColumn>
+
+				<!-- Animation -->
+				<DataGridTextColumn IsVisible="{Binding ShowBasic}" Binding="{Binding AnimationName}">
+					<DataGridTextColumn.HeaderTemplate>
+						<DataTemplate>
+							<Label Content="Animation Name" ToolTip.Tip="The name of a MSET file in the obj folder"/>
+						</DataTemplate>
+					</DataGridTextColumn.HeaderTemplate>
+				</DataGridTextColumn>
+
+				<!-- Target Size -->
+				<DataGridTemplateColumn IsVisible="{Binding ShowBasic}" Header="Target size">
+					<DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<ComboBox HorizontalAlignment="Stretch"
+									  SelectedItem="{Binding ObjectTargetType, Converter={StaticResource TargetConverter}, Mode=TwoWay}"
+                                      ItemsSource="{Binding #DGrid.DataContext.EntryTargetOptions}"
+									  />
+						</DataTemplate>
+					</DataGridTemplateColumn.CellTemplate>
+				</DataGridTemplateColumn>
+				<DataGridTextColumn IsVisible="{Binding ShowBasic}" Width="5" Header="" Binding="{Binding ObjectTargetType, Converter={StaticResource TargetConverter}}" IsReadOnly="True"/>
+
+				<!-- Character / Part -->
+				<DataGridTextColumn IsVisible="{Binding ShowBasic}" Binding="{Binding NeoStatus}">
+					<DataGridTextColumn.HeaderTemplate>
+						<DataTemplate>
+							<Label Content="Character" ToolTip.Tip="Character identifier"/>
+						</DataTemplate>
+					</DataGridTextColumn.HeaderTemplate>
+				</DataGridTextColumn>
+
+				<!-- Weapon Actor / Weapon Part -->
+				<DataGridTextColumn IsVisible="{Binding ShowBasic}" Binding="{Binding NeoMoveset}">
+					<DataGridTextColumn.HeaderTemplate>
+						<DataTemplate>
+							<Label Content="Weapon Actor" ToolTip.Tip="Defines the wepon model this character uses. Points to System - Weapon Motion Set"/>
+						</DataTemplate>
+					</DataGridTextColumn.HeaderTemplate>
+				</DataGridTextColumn>
+
+				<!-- Shadow Size -->
+				<DataGridTemplateColumn IsVisible="{Binding ShowBasic}" Header="Shadow Size">
+					<DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<ComboBox HorizontalAlignment="Stretch"
+									  SelectedItem="{Binding ObjectShadowSize, Converter={StaticResource ShadowConverter}, Mode=TwoWay}"
+                                      ItemsSource="{Binding #DGrid.DataContext.EntryShadowOptions}"
+									  />
+						</DataTemplate>
+					</DataGridTemplateColumn.CellTemplate>
+				</DataGridTemplateColumn>
+				<DataGridTextColumn IsVisible="{Binding ShowBasic}" Width="5" Header="" Binding="{Binding ObjectShadowSize, Converter={StaticResource ShadowConverter}}" IsReadOnly="True"/>
+
+				<!-- Form -->
+				<DataGridTemplateColumn IsVisible="{Binding ShowBasic}" Header="Form">
+					<DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<ComboBox HorizontalAlignment="Stretch"
+									  SelectedItem="{Binding ObjectForm, Converter={StaticResource FormConverter}, Mode=TwoWay}"
+                                      ItemsSource="{Binding #DGrid.DataContext.EntryFormOptions}"
+									  />
+						</DataTemplate>
+					</DataGridTemplateColumn.CellTemplate>
+				</DataGridTemplateColumn>
+				<DataGridTextColumn IsVisible="{Binding ShowBasic}" Width="5" Header="" Binding="{Binding ObjectForm, Converter={StaticResource ShadowConverter}}" IsReadOnly="True"/>
+
+				<!-- Weight -->
+				<DataGridTextColumn IsVisible="{Binding ShowExtended}" Header="Weight" Binding="{Binding Weight}" IsReadOnly="True"/>
+				<!-- Spawn Cost -->
+				<DataGridTextColumn IsVisible="{Binding ShowExtended}" Header="Spawn Limiter" Binding="{Binding SpawnLimiter}" IsReadOnly="True"/>
+				<!-- Page -->
+				<DataGridTextColumn IsVisible="{Binding ShowExtended}" Header="Page" Binding="{Binding Page}" IsReadOnly="True"/>
+				
+				<!-- Subtype -->
+				<DataGridTextColumn IsVisible="{Binding ShowExtended}" Header="SubType" Binding="{Binding SubType}" IsReadOnly="True"/>
+				<!-- Draw Priority -->
+				<DataGridTextColumn IsVisible="{Binding ShowExtended}" Header="Draw Priority" Binding="{Binding DrawPriority}" IsReadOnly="True"/>
+
+				<!-- Weapon Joint -->
+				<DataGridTextColumn IsVisible="{Binding ShowExtended}" Binding="{Binding WeaponJoint}">
+					<DataGridTextColumn.HeaderTemplate>
+						<DataTemplate>
+							<Label Content="Weapon Joint" ToolTip.Tip="Points to [UNKNOWN]"/>
+						</DataTemplate>
+					</DataGridTextColumn.HeaderTemplate>
+				</DataGridTextColumn>
+
+				<!-- Spawns -->
+				<DataGridTextColumn IsVisible="{Binding ShowSpawns}" Header="Spawn 1" Binding="{Binding SpawnObject1}" IsReadOnly="True"/>
+				<DataGridTextColumn IsVisible="{Binding ShowSpawns}" Header="Spawn 2" Binding="{Binding SpawnObject2}" IsReadOnly="True"/>
+				<DataGridTextColumn IsVisible="{Binding ShowSpawns}" Header="Spawn 3" Binding="{Binding SpawnObject3}" IsReadOnly="True"/>
+				<DataGridTextColumn IsVisible="{Binding ShowSpawns}" Header="Spawn 4" Binding="{Binding SpawnObject4}" IsReadOnly="True"/>
+
+				<!-- Flags -->
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowFlags}" Header="No Apdx" Binding="{Binding NoApdx}"/>
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowFlags}" Header="Before" Binding="{Binding Before}"/>
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowFlags}" Header="Fix Color" Binding="{Binding FixColor}"/>
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowFlags}" Header="Fly" Binding="{Binding Fly}"/>
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowFlags}" Header="Scissoring" Binding="{Binding Scissoring}"/>
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowFlags}" Header="Pirate" Binding="{Binding IsPirate}"/>
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowFlags}" Header="Wall Occlusion" Binding="{Binding WallOcclusion}"/>
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowFlags}" Header="Hift" Binding="{Binding Hift}"/>
+				
+			</DataGrid.Columns>
+
+		</DataGrid>
+		<Grid Grid.Row="2" ColumnDefinitions="*,*">
+			<StackPanel Grid.Column="0" Orientation="Horizontal">
+				<Label VerticalAlignment="Center" Margin="30,0,0,0">Filter</Label>
+				<TextBox Text="{Binding FilterText}" Height="20" Width="100" Margin="10,0,0,0"></TextBox>
+				<Button Click="Button_ApplyFilter" Margin="30,0,0,0">Apply</Button>
+			</StackPanel>
+			<StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+				<Button Click="Button_Save" Margin="0,0,30,0">Save</Button>
+			</StackPanel>
+		</Grid>
+	</Grid>
+</UserControl>
