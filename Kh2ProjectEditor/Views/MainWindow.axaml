@@ -20,16 +20,15 @@
 				<MenuItem Header="Member Table" Click="MenuItem_SystemMemberTable"></MenuItem>
 				<MenuItem Header="Font Style" Click="MenuItem_SystemFontStyles"></MenuItem>
 				<MenuItem Header="Shops" Click="MenuItem_SystemShops"></MenuItem>
-				<MenuItem Header="Skeleton"></MenuItem>
+				<MenuItem Header="Weapon Joints" Click="MenuItem_SystemSkeleton"></MenuItem>
+				<MenuItem Header="Event Params" Click="MenuItem_SystemEventParams"></MenuItem>
 				<MenuItem Header="Preferences">
-					<MenuItem Header="Player"></MenuItem>
-					<MenuItem Header="Form Abilities"></MenuItem>
-					<MenuItem Header="Party"></MenuItem>
-					<MenuItem Header="System"></MenuItem>
-					<MenuItem Header="Magic"></MenuItem>
+					<MenuItem Header="Player" Click="MenuItem_SystemPrefPlayer"></MenuItem>
+					<MenuItem Header="Form Abilities" Click="MenuItem_SystemPrefFormAbilities"></MenuItem>
+					<MenuItem Header="Party" Click="MenuItem_SystemPrefParty"></MenuItem>
+					<MenuItem Header="System" Click="MenuItem_SystemPrefSystem"></MenuItem>
+					<MenuItem Header="Magic" Click="MenuItem_SystemPrefMagic"></MenuItem>
 				</MenuItem>
-				<MenuItem Header="Event Params"></MenuItem>
-				<MenuItem Header="ipic" IsVisible="False"></MenuItem>
 			</MenuItem>
 			<MenuItem Header="Battle">
 				<MenuItem Header="Attack Params"></MenuItem>
@@ -69,7 +68,10 @@
 				<MenuItem Header="Experience"></MenuItem>
 			</MenuItem>
 			<MenuItem Header="Object Entries" Click="MenuItem_ObjectEntries"></MenuItem>
-			<MenuItem Header="Tools"></MenuItem>
+			<MenuItem Header="Tools">
+				<MenuItem Header="BAR Editor" Click="MenuItem_ToolsBarEditor"></MenuItem>
+				<MenuItem Header="TEST" Click="MenuItem_ToolsTest"></MenuItem>
+			</MenuItem>
 		</Menu>
 
 		<!-- BOTTOM MENU -->

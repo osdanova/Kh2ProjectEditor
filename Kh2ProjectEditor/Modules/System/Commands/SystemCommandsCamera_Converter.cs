@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using Kh2ProjectEditor.Utils;
-using static KhLib.Kh2.System.CommandsFile;
+using static KhLib.Kh2.KhSystem.CommandsFile;
 
-namespace Kh2ProjectEditor.Modules.System.Commands
+namespace Kh2ProjectEditor.Modules.KhSystem.Commands
 {
     public class SystemCommandsCamera_Converter : BaseEnumStringConverter<Camera>
     {

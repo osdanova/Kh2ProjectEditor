@@ -2,10 +2,10 @@
 using Kh2ProjectEditor.Services;
 using Kh2ProjectEditor.Utils;
 using KhLib.Kh2.Dictionaries;
-using KhLib.Kh2.System;
-using static KhLib.Kh2.System.ItemsFile;
+using KhLib.Kh2.KhSystem;
+using static KhLib.Kh2.KhSystem.ItemsFile;
 
-namespace Kh2ProjectEditor.Modules.System.Items
+namespace Kh2ProjectEditor.Modules.KhSystem.Items
 {
     internal partial class SystemItemsItem_Wrapper : ObservableObject
     {

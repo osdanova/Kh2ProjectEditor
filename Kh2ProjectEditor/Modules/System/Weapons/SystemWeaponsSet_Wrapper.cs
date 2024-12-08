@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using Kh2ProjectEditor.Utils;
 
-namespace Kh2ProjectEditor.Modules.System.Weapons
+namespace Kh2ProjectEditor.Modules.KhSystem.Weapons
 {
     internal partial class SystemWeaponsSet_Wrapper : ObservableObject
     {

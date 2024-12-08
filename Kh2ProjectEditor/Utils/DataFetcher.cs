@@ -1,7 +1,7 @@
 ﻿using Kh2ProjectEditor.Services.Files;
 using KhLib.Kh2.Dictionaries;
 using KhLib.Kh2;
-using KhLib.Kh2.System;
+using KhLib.Kh2.KhSystem;
 using Kh2ProjectEditor.Services;
 
 namespace Kh2ProjectEditor.Utils
@@ -65,5 +65,19 @@ namespace Kh2ProjectEditor.Utils
             int roomId = world * 1000 + room;
             return (!WorldRooms_Dictionary.Instance.ContainsKey(roomId)) ? "<NOT_FOUND>" : WorldRooms_Dictionary.Instance[roomId];
         }
+
+        public static string GetCharacterName(ushort entryId)
+        {
+            return (!Characters_Dictionary.Instance.ContainsKey(entryId)) ? "<NOT_FOUND>" : Characters_Dictionary.Instance[entryId];
+        }
+
+        public static string GetPlayerName(ushort entryId)
+        {
+            return (!Players_Dictionary.Instance.ContainsKey(entryId)) ? "<NOT_FOUND>" : Players_Dictionary.Instance[entryId];
+        }
+
+        public static string GetMenuFlagName(byte entryId) => (!MenuFlags_Dictionary.Instance.ContainsKey(entryId)) ? "<NOT_FOUND>" : MenuFlags_Dictionary.Instance[entryId];
+        public static string GetSignalName(byte entryId) => (!Signals_Dictionary.Instance.ContainsKey(entryId)) ? "<NOT_FOUND>" : Signals_Dictionary.Instance[entryId];
+        public static string GetBonusLevelName(byte entryId) => (!BonusLevels_Dictionary.Instance.ContainsKey(entryId)) ? "<NOT_FOUND>" : BonusLevels_Dictionary.Instance[entryId];
     }
 }

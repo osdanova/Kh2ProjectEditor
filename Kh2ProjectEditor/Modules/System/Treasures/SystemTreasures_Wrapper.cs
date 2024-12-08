@@ -2,10 +2,10 @@
 using Kh2ProjectEditor.Services;
 using Kh2ProjectEditor.Utils;
 using KhLib.Kh2.Dictionaries;
-using KhLib.Kh2.System;
-using static KhLib.Kh2.System.TreasuresFile;
+using KhLib.Kh2.KhSystem;
+using static KhLib.Kh2.KhSystem.TreasuresFile;
 
-namespace Kh2ProjectEditor.Modules.System.Treasures
+namespace Kh2ProjectEditor.Modules.KhSystem.Treasures
 {
     internal partial class SystemTreasures_Wrapper : ObservableObject
     {

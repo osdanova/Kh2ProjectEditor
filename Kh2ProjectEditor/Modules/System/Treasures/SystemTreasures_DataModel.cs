@@ -2,12 +2,12 @@
 using Kh2ProjectEditor.Modules.Common;
 using Kh2ProjectEditor.Services;
 using Kh2ProjectEditor.Services.Files;
-using KhLib.Kh2.System;
+using KhLib.Kh2.KhSystem;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace Kh2ProjectEditor.Modules.System.Treasures
+namespace Kh2ProjectEditor.Modules.KhSystem.Treasures
 {
     internal partial class SystemTreasures_DataModel : ObservableObject
     {

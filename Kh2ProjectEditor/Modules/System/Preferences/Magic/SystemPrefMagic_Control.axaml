@@ -1,0 +1,79 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Kh2ProjectEditor.SystemPrefMagic_Control">
+
+	<Grid RowDefinitions="*,100">
+		<Grid Grid.Row="0" ColumnDefinitions="*,*">
+
+			<!-- Items -->
+			<DataGrid Grid.Column="0" Margin="20" Name="DGrid"
+					ItemsSource="{Binding LoadedEntries, Mode=TwoWay}"
+					GridLinesVisibility="All" BorderThickness="1" BorderBrush="Gray">
+				<DataGrid.Columns>
+
+					<DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True"/>
+					<DataGridTextColumn Header="Magic Id" Binding="{Binding MagicEntryId}"/>
+
+				</DataGrid.Columns>
+			</DataGrid>
+
+
+			<!-- Params -->
+			<DataGrid Grid.Column="1" Margin="20" Name="PrefGrid"
+						ItemsSource="{Binding LoadedMagicEntries, Mode=TwoWay}"
+						GridLinesVisibility="All" BorderThickness="1" BorderBrush="Gray">
+				<DataGrid.Columns>
+
+					<!-- Id -->
+					<DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+					<DataGridTextColumn Header="FireRadius" Binding="{Binding FireRadius}"/>
+					<DataGridTextColumn Header="FireHeight" Binding="{Binding FireHeight}"/>
+					<DataGridTextColumn Header="FireTime" Binding="{Binding FireTime}"/>
+					<DataGridTextColumn Header="BlizzardFadeTime" Binding="{Binding BlizzardFadeTime}"/>
+					<DataGridTextColumn Header="BlizzardTime" Binding="{Binding BlizzardTime}"/>
+					<DataGridTextColumn Header="BlizzardSpeed" Binding="{Binding BlizzardSpeed}"/>
+					<DataGridTextColumn Header="BlizzardRadius" Binding="{Binding BlizzardRadius}"/>
+					<DataGridTextColumn Header="BlizzardHitback" Binding="{Binding BlizzardHitback}"/>
+					<DataGridTextColumn Header="ThunderNoTargetDistance" Binding="{Binding ThunderNoTargetDistance}"/>
+					<DataGridTextColumn Header="ThunderCheckHeight" Binding="{Binding ThunderCheckHeight}"/>
+					<DataGridTextColumn Header="ThunderBurstRadius" Binding="{Binding ThunderBurstRadius}"/>
+					<DataGridTextColumn Header="ThunderHeight" Binding="{Binding ThunderHeight}"/>
+					<DataGridTextColumn Header="ThunderRadius" Binding="{Binding ThunderRadius}"/>
+					<DataGridTextColumn Header="ThunderAttackWait" Binding="{Binding ThunderAttackWait}"/>
+					<DataGridTextColumn Header="ThunderTime" Binding="{Binding ThunderTime}"/>
+					<DataGridTextColumn Header="CureRange" Binding="{Binding CureRange}"/>
+					<DataGridTextColumn Header="MagnetMinYOffset" Binding="{Binding MagnetMinYOffset}"/>
+					<DataGridTextColumn Header="MagnetLargeTime" Binding="{Binding MagnetLargeTime}"/>
+					<DataGridTextColumn Header="MagnetStayTime" Binding="{Binding MagnetStayTime}"/>
+					<DataGridTextColumn Header="MagnetSmallTime" Binding="{Binding MagnetSmallTime}"/>
+					<DataGridTextColumn Header="MagnetRadius" Binding="{Binding MagnetRadius}"/>
+					<DataGridTextColumn Header="ReflectRadius" Binding="{Binding ReflectRadius}"/>
+					<DataGridTextColumn Header="ReflectLaserTime" Binding="{Binding ReflectLaserTime}"/>
+					<DataGridTextColumn Header="ReflectFinishTime" Binding="{Binding ReflectFinishTime}"/>
+					<DataGridTextColumn Header="ReflectLv1Radius" Binding="{Binding ReflectLv1Radius}"/>
+					<DataGridTextColumn Header="ReflectLv1Height" Binding="{Binding ReflectLv1Height}"/>
+					<DataGridTextColumn Header="ReflectLv2Count" Binding="{Binding ReflectLv2Count}"/>
+					<DataGridTextColumn Header="ReflectLv2Radius" Binding="{Binding ReflectLv2Radius}"/>
+					<DataGridTextColumn Header="ReflectLv2Height" Binding="{Binding ReflectLv2Height}"/>
+					<DataGridTextColumn Header="ReflectLv3Count" Binding="{Binding ReflectLv3Count}"/>
+					<DataGridTextColumn Header="ReflectLv3Radius" Binding="{Binding ReflectLv3Radius}"/>
+					<DataGridTextColumn Header="ReflectLv3Height" Binding="{Binding ReflectLv3Height}"/>
+
+				</DataGrid.Columns>
+
+			</DataGrid>
+
+		</Grid>
+		<Grid Grid.Row="1" ColumnDefinitions="*,*">
+			<StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left">
+			</StackPanel>
+			<StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+				<Button Click="Button_Save" Margin="0,0,30,0">Save</Button>
+			</StackPanel>
+		</Grid>
+	</Grid>
+	
+</UserControl>

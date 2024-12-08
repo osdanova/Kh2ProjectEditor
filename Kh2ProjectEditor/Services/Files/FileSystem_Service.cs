@@ -1,6 +1,6 @@
 ﻿using Kh2ProjectEditor.Utils;
 using KhLib.Kh2;
-using KhLib.Kh2.System;
+using KhLib.Kh2.KhSystem;
 using System.IO;
 
 namespace Kh2ProjectEditor.Services.Files
@@ -18,10 +18,16 @@ namespace Kh2ProjectEditor.Services.Files
         public MemberTableFile MemtFile { get; set; }
         public FontStyleFile FtstFile { get; set; }
         public ShopsFile ShopFile { get; set; }
-        // Skeleton
+        public SkeletonFile SkltFile { get; set; }
+        public EventParamsFile EvtpFile { get; set; }
         // Preferences
-        // Event Params
-        // Item Picture
+        public BinaryArchive PrefFile { get; set; }
+        public PrefPlayerFile PrefPlyrFile { get; set; }
+        public PrefFormAbilitiesFile PrefFmabFile { get; set; }
+        public PrefPartyFile PrefPrtyFile { get; set; }
+        public PrefSystemFile PrefSstmFile { get; set; }
+        public PrefMagicFile PrefMagiFile { get; set; }
+        // Item Picture //SEQD file
 
         public void LoadFromProject()
         {
@@ -67,19 +73,42 @@ namespace Kh2ProjectEditor.Services.Files
                         ShopFile = ShopsFile.Read(entry.File);
                         break;
                     case "sklt":
-                        break;
-                    case "pref":
+                        SkltFile = SkeletonFile.Read(entry.File);
                         break;
                     case "evtp":
+                        EvtpFile = EventParamsFile.Read(entry.File);
                         break;
-                    case "ipic":
+
+                    case "pref":
+                        PrefFile = BinaryArchive.Read(entry.File);
+                        foreach (BinaryArchive.Entry prefEntry in PrefFile.Entries)
+                        {
+                            switch (prefEntry.Name)
+                            {
+                                case "plyr":
+                                    PrefPlyrFile = PrefPlayerFile.Read(prefEntry.File);
+                                    break;
+                                case "fmab":
+                                    PrefFmabFile = PrefFormAbilitiesFile.Read(prefEntry.File);
+                                    break;
+                                case "prty":
+                                    PrefPrtyFile = PrefPartyFile.Read(prefEntry.File);
+                                    break;
+                                case "sstm":
+                                    PrefSstmFile = PrefSystemFile.Read(prefEntry.File);
+                                    break;
+                                case "magi":
+                                    PrefMagiFile = PrefMagicFile.Read(prefEntry.File);
+                                    break;
+                            }
+                        }
                         break;
                 }
             }
         }
 
         // Saves the given subfile to the system file
-        public void SaveBarFile(string filename)
+        public void SaveBarFile(string filename, string prefFilename = "")
         {
             foreach (BinaryArchive.Entry entry in SystemBar.Entries)
             {
@@ -118,12 +147,38 @@ namespace Kh2ProjectEditor.Services.Files
                             entry.File = FileSystem_Service.Instance.ShopFile.GetAsByteArray();
                             break;
                         case "sklt":
-                            break;
-                        case "pref":
+                            entry.File = FileSystem_Service.Instance.SkltFile.GetAsByteArray();
                             break;
                         case "evtp":
+                            entry.File = FileSystem_Service.Instance.EvtpFile.GetAsByteArray();
                             break;
-                        case "ipic":
+
+                        case "pref":
+                            foreach (BinaryArchive.Entry prefEntry in PrefFile.Entries)
+                            {
+                                if (prefEntry.Name == prefFilename)
+                                {
+                                    switch (prefEntry.Name)
+                                    {
+                                        case "plyr":
+                                            prefEntry.File = FileSystem_Service.Instance.PrefPlyrFile.GetAsByteArray();
+                                            break;
+                                        case "fmab":
+                                            prefEntry.File = FileSystem_Service.Instance.PrefFmabFile.GetAsByteArray();
+                                            break;
+                                        case "prty":
+                                            prefEntry.File = FileSystem_Service.Instance.PrefPrtyFile.GetAsByteArray();
+                                            break;
+                                        case "sstm":
+                                            prefEntry.File = FileSystem_Service.Instance.PrefSstmFile.GetAsByteArray();
+                                            break;
+                                        case "magi":
+                                            prefEntry.File = FileSystem_Service.Instance.PrefMagiFile.GetAsByteArray();
+                                            break;
+                                    }
+                                }
+                            }
+                            entry.File = FileSystem_Service.Instance.PrefFile.GetAsByteArray();
                             break;
                     }
                 }

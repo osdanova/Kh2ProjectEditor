@@ -1,9 +1,9 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using KhLib.Kh2.System;
+using KhLib.Kh2.KhSystem;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace Kh2ProjectEditor.Modules.System.Shops
+namespace Kh2ProjectEditor.Modules.KhSystem.Shops
 {
     public partial class SystemShopsInventory_Wrapper : ObservableObject
     {

@@ -1,9 +1,9 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using Kh2ProjectEditor.Services;
 using KhLib.Kh2.Utils;
-using static KhLib.Kh2.System.CommandsFile;
+using static KhLib.Kh2.KhSystem.CommandsFile;
 
-namespace Kh2ProjectEditor.Modules.System.Commands
+namespace Kh2ProjectEditor.Modules.KhSystem.Commands
 {
     internal partial class SystemCommandsEntry_Wrapper : ObservableObject
     {

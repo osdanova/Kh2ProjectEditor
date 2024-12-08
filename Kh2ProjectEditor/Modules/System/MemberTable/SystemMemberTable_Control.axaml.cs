@@ -1,5 +1,5 @@
 using Avalonia.Controls;
-using Kh2ProjectEditor.Modules.System.MemberTable;
+using Kh2ProjectEditor.Modules.KhSystem.MemberTable;
 
 namespace Kh2ProjectEditor;
 

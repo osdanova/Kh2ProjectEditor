@@ -1,8 +1,8 @@
 ﻿using Kh2ProjectEditor.Utils;
 using System.Collections.Generic;
-using static KhLib.Kh2.System.ItemsFile;
+using static KhLib.Kh2.KhSystem.ItemsFile;
 
-namespace Kh2ProjectEditor.Modules.System.Items
+namespace Kh2ProjectEditor.Modules.KhSystem.Items
 {
     internal class SystemItemsPrizebox_Converter : BaseEnumStringConverter<PrizeboxType>
     {

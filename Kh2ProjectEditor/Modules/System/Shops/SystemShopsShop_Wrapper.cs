@@ -1,17 +1,17 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using Kh2ProjectEditor.Services;
 using Kh2ProjectEditor.Utils;
-using KhLib.Kh2.System;
+using KhLib.Kh2.KhSystem;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using static KhLib.Kh2.System.ShopsFile;
+using static KhLib.Kh2.KhSystem.ShopsFile;
 
-namespace Kh2ProjectEditor.Modules.System.Shops
+namespace Kh2ProjectEditor.Modules.KhSystem.Shops
 {
     internal partial class SystemShopsShop_Wrapper : ObservableObject
     {
-        [ObservableProperty] public ushort gameSignalId;
-        [ObservableProperty] public ushort menuFlagId;
+        [ObservableProperty][NotifyPropertyChangedFor(nameof(SignalName))] public ushort gameSignalId;
+        [ObservableProperty][NotifyPropertyChangedFor(nameof(MenuFlagName))] public ushort menuFlagId;
         [ObservableProperty] public ushort nameId;
         [ObservableProperty] public ushort shopkeeperObjectId;
         [ObservableProperty] public ushort posX;
@@ -30,6 +30,8 @@ namespace Kh2ProjectEditor.Modules.System.Shops
         [ObservableProperty] public byte allItemCount;
         public string ObjectDesc => DataFetcher.GetObjectDescription((uint)shopkeeperObjectId);
         public string Name => MessageService.Instance.GetEntryText(NameId);
+        public string SignalName => DataFetcher.GetSignalName((byte)gameSignalId);
+        public string MenuFlagName => DataFetcher.GetMenuFlagName((byte)menuFlagId);
 
         public ObservableCollection<SystemShopsInventory_Wrapper> Inventories { get; set; }
 

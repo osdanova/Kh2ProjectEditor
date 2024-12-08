@@ -2,14 +2,12 @@
 using Kh2ProjectEditor.Modules.Common;
 using Kh2ProjectEditor.Services;
 using Kh2ProjectEditor.Services.Files;
-using KhLib.Kh2;
-using KhLib.Kh2.System;
+using KhLib.Kh2.KhSystem;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
 using System.Linq;
 
-namespace Kh2ProjectEditor.Modules.System.Items
+namespace Kh2ProjectEditor.Modules.KhSystem.Items
 {
     internal partial class SystemItems_DataModel : ObservableObject
     {

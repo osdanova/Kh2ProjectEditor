@@ -32,5 +32,12 @@
     <Compile Update="Modules\ObjectEntries\ObjectEntries_Control.axaml.cs">
       <DependentUpon>ObjectEntries_Control.axaml</DependentUpon>
     </Compile>
+    <Compile Update="Modules\System\Preferences\Magic\SystemPrefMagic_Control.axaml.cs">
+      <DependentUpon>SystemPrefMagic_Control.axaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Modules\System\Preferences\Player\SystemPrefPlayer_Control.axaml" />
   </ItemGroup>
 </Project>

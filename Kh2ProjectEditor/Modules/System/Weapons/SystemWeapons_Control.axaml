@@ -15,7 +15,8 @@
 					<DataGrid.Columns>
 
 						<!-- Id -->
-						<DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+						<DataGridTextColumn Header="" Binding="{Binding PlayerName}"/>
+						<DataGridTextColumn Header="Player Id" Binding="{Binding Id}"/>
 						<DataGridTextColumn IsVisible="{Binding RightWeapon}" Header="Right Weapon Motion Set" Binding="{Binding RightWeapon}"/>
 						<DataGridTextColumn IsVisible="{Binding LeftWeapon}" Header="Left Weapon Motion Set" Binding="{Binding LeftWeapon}"/>
 						<DataGridTextColumn IsVisible="{Binding SetId}" Header="Model Set Id" Binding="{Binding SetId}"/>

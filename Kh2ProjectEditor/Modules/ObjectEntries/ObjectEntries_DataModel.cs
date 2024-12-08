@@ -69,7 +69,7 @@ namespace Kh2ProjectEditor.Modules.ObjectEntries
                    entry.Id.ToString().Contains(FilterText) ||
                    entry.ObjectDescription.ToString().ToLower().Contains(FilterText.ToLower()) ||
                    entry.ModelName.ToString().ToLower().Contains(FilterText.ToLower()) ||
-                   entry.AnimationName.ToString().ToLower().Contains(FilterText.ToLower()) ||
+                   entry.MotionSetName.ToString().ToLower().Contains(FilterText.ToLower()) ||
                    entry.SpawnObject1.ToString().Contains(FilterText) ||
                    entry.SpawnObject2.ToString().Contains(FilterText) ||
                    entry.SpawnObject3.ToString().Contains(FilterText) ||

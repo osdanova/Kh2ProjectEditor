@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using Kh2ProjectEditor.Utils;
 
-namespace Kh2ProjectEditor.Modules.System.Shops
+namespace Kh2ProjectEditor.Modules.KhSystem.Shops
 {
     public partial class SystemShopsProduct_Wrapper : ObservableObject
     {

@@ -1,8 +1,8 @@
 ﻿using Kh2ProjectEditor.Utils;
-using KhLib.Kh2.System;
+using KhLib.Kh2.KhSystem;
 using System.Collections.Generic;
 
-namespace Kh2ProjectEditor.Modules.System.Items
+namespace Kh2ProjectEditor.Modules.KhSystem.Items
 {
     internal class SystemItemsAbilityType_Converter : BaseEnumStringConverter<ItemsFile.AbilityType>
     {

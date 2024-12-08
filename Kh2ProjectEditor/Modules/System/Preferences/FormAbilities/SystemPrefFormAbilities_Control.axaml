@@ -1,0 +1,54 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Kh2ProjectEditor.SystemPrefFormAbilities_Control">
+
+	<Grid RowDefinitions="40,*,50">
+		<StackPanel Grid.Row="0"  Orientation="Horizontal" Margin="20,0,0,0">
+			<RadioButton GroupName="Abilities" IsChecked="{Binding ShowHighJump}"  Content="High Jump" Margin="20,0,0,0"/>
+			<RadioButton GroupName="Abilities" IsChecked="{Binding ShowAirDodge}" Content="Air Dodge" Margin="20,0,0,0"/>
+			<RadioButton GroupName="Abilities" IsChecked="{Binding ShowAirSlide}"  Content="Air Slide" Margin="20,0,0,0"/>
+			<RadioButton GroupName="Abilities" IsChecked="{Binding ShowGlide}"  Content="Glide" Margin="20,0,0,0"/>
+			<RadioButton GroupName="Abilities" IsChecked="{Binding ShowDodgeRoll}"  Content="Dodge Roll" Margin="20,0,0,0"/>
+		</StackPanel>
+		<!-- TABLE -->
+		<DataGrid Grid.Row="1" Margin="20" Name="DGrid"
+					ItemsSource="{Binding LoadedEntries, Mode=TwoWay}"
+					GridLinesVisibility="All" BorderThickness="1" BorderBrush="Gray">
+
+			<DataGrid.Columns>
+
+				<DataGridTextColumn Header="Level" Binding="{Binding Level}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowHighJump}" Header="Height" Binding="{Binding HighJumpHeight}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowAirDodge}" Header="Height" Binding="{Binding AirDodgeHeight}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowAirDodge}" Header="Speed" Binding="{Binding AirDodgeSpeed}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowAirSlide}" Header="Time" Binding="{Binding AirSlideTime}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowAirSlide}" Header="Speed" Binding="{Binding AirSlideSpeed}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowAirSlide}" Header="Brake" Binding="{Binding AirSlideBrake}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowAirSlide}" Header="Stop Brake" Binding="{Binding AirSlideStopBrake}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowAirSlide}" Header="Start Time" Binding="{Binding AirSlideStarTime}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowGlide}" Header="Speed" Binding="{Binding GlideSpeed}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowGlide}" Header="Fall Ratio" Binding="{Binding GlideFallRatio}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowGlide}" Header="Fall Height" Binding="{Binding GlideFallHeight}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowGlide}" Header="Fall Max" Binding="{Binding GlideFallMax}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowGlide}" Header="Accel" Binding="{Binding GlideAccel}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowGlide}" Header="Start Height" Binding="{Binding GlideStartHeight}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowGlide}" Header="End Height" Binding="{Binding GlideEndHeight}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowGlide}" Header="Turn Speed" Binding="{Binding GlideTurnSpeed}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowDodgeRoll}" Header="Start Time" Binding="{Binding DodgeRollStarTime}"/>
+
+			</DataGrid.Columns>
+
+		</DataGrid>
+		<Grid Grid.Row="2" ColumnDefinitions="*,*">
+			<StackPanel Grid.Column="0" Orientation="Horizontal">
+			</StackPanel>
+			<StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+				<Button Click="Button_Save" Margin="0,0,30,0">Save</Button>
+			</StackPanel>
+		</Grid>
+	</Grid>
+	
+</UserControl>

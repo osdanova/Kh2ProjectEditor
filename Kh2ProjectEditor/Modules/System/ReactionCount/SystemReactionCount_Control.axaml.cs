@@ -1,5 +1,5 @@
 using Avalonia.Controls;
-using Kh2ProjectEditor.Modules.System.ReactionCount;
+using Kh2ProjectEditor.Modules.KhSystem.ReactionCount;
 
 namespace Kh2ProjectEditor;
 

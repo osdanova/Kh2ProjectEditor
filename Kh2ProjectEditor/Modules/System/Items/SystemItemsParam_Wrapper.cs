@@ -1,8 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using Kh2ProjectEditor.Utils;
-using KhLib.Kh2.System;
+using KhLib.Kh2.KhSystem;
 
-namespace Kh2ProjectEditor.Modules.System.Items
+namespace Kh2ProjectEditor.Modules.KhSystem.Items
 {
     internal partial class SystemItemsParam_Wrapper : ObservableObject
     {

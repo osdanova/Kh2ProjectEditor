@@ -1,5 +1,5 @@
 using Avalonia.Controls;
-using Kh2ProjectEditor.Modules.System.FontStyles;
+using Kh2ProjectEditor.Modules.KhSystem.FontStyles;
 
 namespace Kh2ProjectEditor;
 

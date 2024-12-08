@@ -1,5 +1,5 @@
 using Avalonia.Controls;
-using Kh2ProjectEditor.Modules.System.AreaInfo;
+using Kh2ProjectEditor.Modules.KhSystem.AreaInfo;
 
 namespace Kh2ProjectEditor;
 

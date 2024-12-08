@@ -3,12 +3,12 @@ using Kh2ProjectEditor.Modules.Common;
 using Kh2ProjectEditor.Services;
 using Kh2ProjectEditor.Services.Files;
 using KhLib.Kh2.Dictionaries;
-using KhLib.Kh2.System;
+using KhLib.Kh2.KhSystem;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace Kh2ProjectEditor.Modules.System.AreaInfo
+namespace Kh2ProjectEditor.Modules.KhSystem.AreaInfo
 {
     internal partial class SystemAreaInfo_DataModel : ObservableObject
     {

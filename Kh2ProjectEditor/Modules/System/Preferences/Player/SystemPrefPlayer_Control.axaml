@@ -1,0 +1,77 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Kh2ProjectEditor.SystemPrefPlayer_Control">
+
+	<Grid RowDefinitions="*,100">
+		<Grid Grid.Row="0" ColumnDefinitions="*,*">
+
+			<!-- Items -->
+			<DataGrid Grid.Column="0" Margin="20" Name="DGrid"
+					ItemsSource="{Binding LoadedEntries, Mode=TwoWay}"
+					GridLinesVisibility="All" BorderThickness="1" BorderBrush="Gray">
+				<DataGrid.Columns>
+
+					<DataGridTextColumn Header="" Binding="{Binding PlayerName}" IsReadOnly="True"/>
+					<DataGridTextColumn Header="playerId" Binding="{Binding PlayerId}" IsReadOnly="True"/>
+					<DataGridTextColumn Header="Preference Id" Binding="{Binding PreferenceId}"/>
+
+				</DataGrid.Columns>
+			</DataGrid>
+
+
+			<!-- Params -->
+			<DataGrid Grid.Column="1" Margin="20" Name="PrefGrid"
+						ItemsSource="{Binding LoadedPreferences, Mode=TwoWay}"
+						GridLinesVisibility="All" BorderThickness="1" BorderBrush="Gray">
+				<DataGrid.Columns>
+
+					<!-- Id -->
+					<DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+					<DataGridTextColumn Header="AttackYOfs" Binding="{Binding AttackYOfs}"/>
+					<DataGridTextColumn Header="AttackRadius" Binding="{Binding AttackRadius}"/>
+					<DataGridTextColumn Header="AttackMinH" Binding="{Binding AttackMinH}"/>
+					<DataGridTextColumn Header="AttackMaxH" Binding="{Binding AttackMaxH}"/>
+					<DataGridTextColumn Header="AttackVAngle" Binding="{Binding AttackVAngle}"/>
+					<DataGridTextColumn Header="AttackVRange" Binding="{Binding AttackVRange}"/>
+					<DataGridTextColumn Header="AttackSRange" Binding="{Binding AttackSRange}"/>
+					<DataGridTextColumn Header="AttackHAngle" Binding="{Binding AttackHAngle}"/>
+					<DataGridTextColumn Header="AttackUMinH" Binding="{Binding AttackUMinH}"/>
+					<DataGridTextColumn Header="AttackUMaxH" Binding="{Binding AttackUMaxH}"/>
+					<DataGridTextColumn Header="AttackURange" Binding="{Binding AttackURange}"/>
+					<DataGridTextColumn Header="AttackJFront" Binding="{Binding AttackJFront}"/>
+					<DataGridTextColumn Header="AttackAirMinH" Binding="{Binding AttackAirMinH}"/>
+					<DataGridTextColumn Header="AttackAirMaxH" Binding="{Binding AttackAirMaxH}"/>
+					<DataGridTextColumn Header="AttackAirBigHOfs" Binding="{Binding AttackAirBigHOfs}"/>
+					<DataGridTextColumn Header="AttackUV0" Binding="{Binding AttackUV0}"/>
+					<DataGridTextColumn Header="AttackJV0" Binding="{Binding AttackJV0}"/>
+					<DataGridTextColumn Header="AttackFirstV0" Binding="{Binding AttackFirstV0}"/>
+					<DataGridTextColumn Header="AttackComboV0" Binding="{Binding AttackComboV0}"/>
+					<DataGridTextColumn Header="AttackFinishV0" Binding="{Binding AttackFinishV0}"/>
+					<DataGridTextColumn Header="BlowRecovH" Binding="{Binding BlowRecovH}"/>
+					<DataGridTextColumn Header="BlowRecovV" Binding="{Binding BlowRecovV}"/>
+					<DataGridTextColumn Header="BlowRecovTime" Binding="{Binding BlowRecovTime}"/>
+					<DataGridTextColumn Header="AutoLockOnRange" Binding="{Binding AutoLockOnRange}"/>
+					<DataGridTextColumn Header="AutoLockOnMinH" Binding="{Binding AutoLockOnMinH}"/>
+					<DataGridTextColumn Header="AutoLockOnMaxH" Binding="{Binding AutoLockOnMaxH}"/>
+					<DataGridTextColumn Header="AutoLockOnTime" Binding="{Binding AutoLockOnTime}"/>
+					<DataGridTextColumn Header="AutoLockOnHAdjust" Binding="{Binding AutoLockOnHAdjust}"/>
+					<DataGridTextColumn Header="AutoLockOnInnerAdjust" Binding="{Binding AutoLockOnInnerAdjust}"/>
+
+				</DataGrid.Columns>
+
+			</DataGrid>
+
+		</Grid>
+		<Grid Grid.Row="1" ColumnDefinitions="*,*">
+			<StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left">
+			</StackPanel>
+			<StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+				<Button Click="Button_Save" Margin="0,0,30,0">Save</Button>
+			</StackPanel>
+		</Grid>
+	</Grid>
+	
+</UserControl>

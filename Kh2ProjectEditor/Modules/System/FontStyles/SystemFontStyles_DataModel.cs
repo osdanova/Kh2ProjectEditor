@@ -1,10 +1,10 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using Kh2ProjectEditor.Services;
 using Kh2ProjectEditor.Services.Files;
-using KhLib.Kh2.System;
+using KhLib.Kh2.KhSystem;
 using System.Collections.ObjectModel;
 
-namespace Kh2ProjectEditor.Modules.System.FontStyles
+namespace Kh2ProjectEditor.Modules.KhSystem.FontStyles
 {
     internal class SystemFontStyles_DataModel : ObservableObject
     {

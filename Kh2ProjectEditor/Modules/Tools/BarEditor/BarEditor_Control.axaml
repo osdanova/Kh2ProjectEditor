@@ -1,0 +1,66 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:local="clr-namespace:Kh2ProjectEditor.Modules.Tools.BarEditor"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Kh2ProjectEditor.BarEditor_Control">
+
+	<UserControl.Resources>
+		<local:BarEditorEntryType_Converter x:Key="barEntryTypeConverter" />
+		<local:BarEditorMotionsetType_Converter x:Key="barMotionsetTypeConverter" />
+	</UserControl.Resources>
+
+	<DockPanel DragDrop.AllowDrop="True">
+
+		<!-- BOTTOM BUTTONS -->
+		<StackPanel DockPanel.Dock="Bottom" Margin="10" Orientation="Horizontal">
+			<Button Click="Button_Save">Save</Button>
+			<Button>Open</Button>
+		</StackPanel>
+
+		<!-- TOP OPTIONS -->
+		<StackPanel DockPanel.Dock="Top" Margin="10" Orientation="Vertical">
+			<CheckBox IsChecked="{Binding ShowMotionTags}"> Show Motion Tags </CheckBox>
+			<ComboBox SelectedItem="{Binding MotionsetType, Converter={StaticResource barMotionsetTypeConverter}, Mode=TwoWay}"
+					  ItemsSource="{Binding MotionSetTypeOptions}"/>
+		</StackPanel>
+
+		<!-- TABLE -->
+		<DataGrid Margin="20" Name="BarGrid"
+				  ItemsSource="{Binding EntryWrappers, Mode=TwoWay}"
+				  GridLinesVisibility="All" BorderThickness="1" BorderBrush="Gray">
+
+			<DataGrid.ContextMenu>
+				<ContextMenu>
+					<MenuItem Header="Export" Click="ContextMenu_Export"/>
+					<MenuItem Header="Import" Click="ContextMenu_Import"/>
+					<MenuItem Header="Replace" Click="ContextMenu_Replace"/>
+				</ContextMenu>
+			</DataGrid.ContextMenu>
+
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="Position" Binding="{Binding Position}" IsReadOnly="True"/>
+				<DataGridTextColumn Header="Name" Binding="{Binding Entry.Name}" IsReadOnly="False"/>
+
+				<DataGridTemplateColumn Header="Type">
+					<DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<ComboBox HorizontalAlignment="Stretch"
+									  SelectedItem="{Binding Entry.Type, Converter={StaticResource barEntryTypeConverter}, Mode=TwoWay}"
+                                      ItemsSource="{Binding #BarGrid.DataContext.EntryTypeOptions}"
+									  />
+						</DataTemplate>
+					</DataGridTemplateColumn.CellTemplate>
+				</DataGridTemplateColumn>
+
+				<DataGridTextColumn Header="Motion Tag" Binding="{Binding MotionTag}" IsVisible="{Binding ShowMotionTags}" IsReadOnly="True"/>
+				<DataGridTextColumn Header="Size (bytes)" Binding="{Binding Entry.FileSize}" Width="*" IsReadOnly="True"/>
+
+			</DataGrid.Columns>
+
+		</DataGrid>
+
+	</DockPanel>
+	
+</UserControl>

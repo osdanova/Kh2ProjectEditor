@@ -1,9 +1,9 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using Kh2ProjectEditor.Services;
 using Kh2ProjectEditor.Utils;
-using KhLib.Kh2.System;
+using KhLib.Kh2.KhSystem;
 
-namespace Kh2ProjectEditor.Modules.System.ReactionCount
+namespace Kh2ProjectEditor.Modules.KhSystem.ReactionCount
 {
     internal partial class SystemReactionCount_Wrapper : ObservableObject
     {

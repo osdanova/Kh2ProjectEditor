@@ -1,9 +1,9 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using Kh2ProjectEditor.Utils;
 using KhLib.Kh2.Dictionaries;
-using KhLib.Kh2.System;
+using KhLib.Kh2.KhSystem;
 
-namespace Kh2ProjectEditor.Modules.System.MemberTable
+namespace Kh2ProjectEditor.Modules.KhSystem.MemberTable
 {
     internal partial class SystemMemberTableEntry_Wrapper : ObservableObject
     {

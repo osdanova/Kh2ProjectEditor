@@ -55,11 +55,11 @@
 					</DataGridTextColumn.HeaderTemplate>
 				</DataGridTextColumn>
 
-				<!-- Animation -->
-				<DataGridTextColumn IsVisible="{Binding ShowBasic}" Binding="{Binding AnimationName}">
+				<!-- Motion Set -->
+				<DataGridTextColumn IsVisible="{Binding ShowBasic}" Binding="{Binding MotionSetName}">
 					<DataGridTextColumn.HeaderTemplate>
 						<DataTemplate>
-							<Label Content="Animation Name" ToolTip.Tip="The name of a MSET file in the obj folder"/>
+							<Label Content="Motion Set Name" ToolTip.Tip="The name of a MSET file in the obj folder"/>
 						</DataTemplate>
 					</DataGridTextColumn.HeaderTemplate>
 				</DataGridTextColumn>
@@ -78,19 +78,19 @@
 				<DataGridTextColumn IsVisible="{Binding ShowBasic}" Width="5" Header="" Binding="{Binding ObjectTargetType, Converter={StaticResource TargetConverter}}" IsReadOnly="True"/>
 
 				<!-- Character / Part -->
-				<DataGridTextColumn IsVisible="{Binding ShowBasic}" Binding="{Binding NeoStatus}">
+				<DataGridTextColumn IsVisible="{Binding ShowBasic}" Binding="{Binding CharacterId}">
 					<DataGridTextColumn.HeaderTemplate>
 						<DataTemplate>
-							<Label Content="Character" ToolTip.Tip="Character identifier"/>
+							<Label Content="Character Id" ToolTip.Tip="Character identifier"/>
 						</DataTemplate>
 					</DataGridTextColumn.HeaderTemplate>
 				</DataGridTextColumn>
 
-				<!-- Weapon Actor / Weapon Part -->
-				<DataGridTextColumn IsVisible="{Binding ShowBasic}" Binding="{Binding NeoMoveset}">
+				<!-- Player / WPart -->
+				<DataGridTextColumn IsVisible="{Binding ShowBasic}" Binding="{Binding PlayerId}">
 					<DataGridTextColumn.HeaderTemplate>
 						<DataTemplate>
-							<Label Content="Weapon Actor" ToolTip.Tip="Defines the wepon model this character uses. Points to System - Weapon Motion Set"/>
+							<Label Content="Player Id" ToolTip.Tip="Defines the wepon model this character uses. Points to System - Weapon Motion Set"/>
 						</DataTemplate>
 					</DataGridTextColumn.HeaderTemplate>
 				</DataGridTextColumn>
@@ -134,7 +134,7 @@
 				<DataGridTextColumn IsVisible="{Binding ShowExtended}" Header="Draw Priority" Binding="{Binding DrawPriority}" IsReadOnly="True"/>
 
 				<!-- Weapon Joint -->
-				<DataGridTextColumn IsVisible="{Binding ShowExtended}" Binding="{Binding WeaponJoint}">
+				<DataGridTextColumn IsVisible="{Binding ShowExtended}" Binding="{Binding WeaponJointId}">
 					<DataGridTextColumn.HeaderTemplate>
 						<DataTemplate>
 							<Label Content="Weapon Joint" ToolTip.Tip="Points to [UNKNOWN]"/>

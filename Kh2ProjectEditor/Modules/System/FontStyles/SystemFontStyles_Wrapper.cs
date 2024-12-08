@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using KhLib.Kh2.System;
+using KhLib.Kh2.KhSystem;
 
-namespace Kh2ProjectEditor.Modules.System.FontStyles
+namespace Kh2ProjectEditor.Modules.KhSystem.FontStyles
 {
     internal partial class SystemFontStyles_Wrapper : ObservableObject
     {

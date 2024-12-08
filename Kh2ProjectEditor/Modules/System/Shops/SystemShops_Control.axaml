@@ -8,7 +8,7 @@
 	<Grid RowDefinitions="30,*,50">
 		<StackPanel Grid.Row="0" Orientation="Horizontal" Margin="20,0,0,0">
 			<CheckBox IsChecked="{Binding ShowGameFlags}" Margin="20,0,0,0">Game Flags</CheckBox>
-			<CheckBox IsChecked="{Binding ShowObject}" Margin="20,0,0,0">Object</CheckBox>
+			<CheckBox IsChecked="{Binding ShowObject}" Margin="20,0,0,0">Shopkeeper</CheckBox>
 			<CheckBox IsChecked="{Binding ShowType}" Margin="20,0,0,0">Type</CheckBox>
 			<CheckBox IsChecked="{Binding ShowProducts}" Margin="20,0,0,0">Products</CheckBox>
 		</StackPanel>
@@ -26,6 +26,7 @@
 					<DataGridTextColumn Header="" Binding="{Binding Name}" IsReadOnly="True"/>
 					<DataGridTextColumn Header="Name Id" Binding="{Binding NameId}"/>
 
+					<DataGridTextColumn IsVisible="{Binding ShowGameFlags}" Header="" Binding="{Binding SignalName}" IsReadOnly="True"/>
 					<DataGridTextColumn IsVisible="{Binding ShowGameFlags}" Binding="{Binding GameSignalId}">
 						<DataGridTextColumn.HeaderTemplate>
 							<DataTemplate>
@@ -34,6 +35,7 @@
 						</DataGridTextColumn.HeaderTemplate>
 					</DataGridTextColumn>
 
+					<DataGridTextColumn IsVisible="{Binding ShowGameFlags}" Header="" Binding="{Binding MenuFlagName}" IsReadOnly="True"/>
 					<DataGridTextColumn IsVisible="{Binding ShowGameFlags}" Binding="{Binding MenuFlagId}">
 						<DataGridTextColumn.HeaderTemplate>
 							<DataTemplate>

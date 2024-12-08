@@ -1,0 +1,61 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Kh2ProjectEditor.SystemPrefParty_Control">
+
+	<Grid RowDefinitions="*,100">
+		<Grid Grid.Row="0" ColumnDefinitions="*,*">
+
+			<!-- Items -->
+			<DataGrid Grid.Column="0" Margin="20" Name="DGrid"
+					ItemsSource="{Binding LoadedEntries, Mode=TwoWay}"
+					GridLinesVisibility="All" BorderThickness="1" BorderBrush="Gray">
+				<DataGrid.Columns>
+
+					<DataGridTextColumn Header="" Binding="{Binding PlayerName}" IsReadOnly="True"/>
+					<DataGridTextColumn Header="playerId" Binding="{Binding PlayerId}" IsReadOnly="True"/>
+					<DataGridTextColumn Header="Party Id" Binding="{Binding PartyEntryId}"/>
+
+				</DataGrid.Columns>
+			</DataGrid>
+
+
+			<!-- Params -->
+			<DataGrid Grid.Column="1" Margin="20" Name="PrefGrid"
+						ItemsSource="{Binding LoadedPartyEntries, Mode=TwoWay}"
+						GridLinesVisibility="All" BorderThickness="1" BorderBrush="Gray">
+				<DataGrid.Columns>
+
+					<!-- Id -->
+					<DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+					<DataGridTextColumn Header="WalkSpeed" Binding="{Binding WalkSpeed}"/>
+					<DataGridTextColumn Header="RunSpeed" Binding="{Binding RunSpeed}"/>
+					<DataGridTextColumn Header="JumpHeight" Binding="{Binding JumpHeight}"/>
+					<DataGridTextColumn Header="TurnSpeed" Binding="{Binding TurnSpeed}"/>
+					<DataGridTextColumn Header="HangHeight" Binding="{Binding HangHeight}"/>
+					<DataGridTextColumn Header="HangMargin" Binding="{Binding HangMargin}"/>
+					<DataGridTextColumn Header="StunTime" Binding="{Binding StunTime}"/>
+					<DataGridTextColumn Header="MpDrive" Binding="{Binding MpDrive}"/>
+					<DataGridTextColumn Header="UpDownSpeed" Binding="{Binding UpDownSpeed}"/>
+					<DataGridTextColumn Header="DashSpeed" Binding="{Binding DashSpeed}"/>
+					<DataGridTextColumn Header="Accel" Binding="{Binding Accel}"/>
+					<DataGridTextColumn Header="Brake" Binding="{Binding Brake}"/>
+					<DataGridTextColumn Header="SubjectiveOffset" Binding="{Binding SubjectiveOffset}"/>
+
+				</DataGrid.Columns>
+
+			</DataGrid>
+
+		</Grid>
+		<Grid Grid.Row="1" ColumnDefinitions="*,*">
+			<StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left">
+			</StackPanel>
+			<StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+				<Button Click="Button_Save" Margin="0,0,30,0">Save</Button>
+			</StackPanel>
+		</Grid>
+	</Grid>
+	
+</UserControl>

@@ -1,5 +1,5 @@
 using Avalonia.Controls;
-using Kh2ProjectEditor.Modules.System.Commands;
+using Kh2ProjectEditor.Modules.KhSystem.Commands;
 
 namespace Kh2ProjectEditor;
 
