@@ -1,0 +1,52 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Kh2ProjectEditor.BattlePatterns_Control">
+
+	<Grid RowDefinitions="30,*,50">
+		<StackPanel Grid.Row="0" Orientation="Horizontal" Margin="20,0,0,0">
+		</StackPanel>
+		<!-- TABLE -->
+		<DataGrid Grid.Row="1" Margin="20" Name="DGrid"
+					ItemsSource="{Binding LoadedEntries, Mode=TwoWay}"
+					GridLinesVisibility="All" BorderThickness="1" BorderBrush="Gray">
+
+			<DataGrid.Columns>
+
+				<!-- Id -->
+				<DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+				<DataGridTextColumn Header="[0] Dmg_S" Binding="{Binding Reaction0}"/>
+				<DataGridTextColumn Header="[1] T_1" Binding="{Binding Reaction1}"/>
+				<DataGridTextColumn Header="[2] T_2" Binding="{Binding Reaction2}"/>
+				<DataGridTextColumn Header="[3] Dmg_L - Basic" Binding="{Binding Reaction3}"/>
+				<DataGridTextColumn Header="[4] Dmg_L - Basic 2" Binding="{Binding Reaction4}"/>
+				<DataGridTextColumn Header="[5] Dmg_M - Magnets" Binding="{Binding Reaction5}"/>
+				<DataGridTextColumn Header="[6] Dmg_M" Binding="{Binding Reaction6}"/>
+				<DataGridTextColumn Header="[7] Dmg_L - Magic Finisher" Binding="{Binding Reaction7}"/>
+				<DataGridTextColumn Header="[8] Dmg_L" Binding="{Binding Reaction8}"/>
+				<DataGridTextColumn Header="[9] Dmg_L - Finisher Mid" Binding="{Binding Reaction9}"/>
+				<DataGridTextColumn Header="[10] Dmg_L" Binding="{Binding Reaction10}"/>
+				<DataGridTextColumn Header="[11] Dmg_L - Finisher End" Binding="{Binding Reaction11}"/>
+				<DataGridTextColumn Header="[12] T_1" Binding="{Binding Reaction12}"/>
+				<DataGridTextColumn Header="[13] Dmg_M" Binding="{Binding Reaction13}"/>
+				<DataGridTextColumn Header="[14] T_14" Binding="{Binding Reaction14}"/>
+				<DataGridTextColumn Header="[15] Dmg_L" Binding="{Binding Reaction15}"/>
+				<DataGridTextColumn Header="[16] Dmg_L" Binding="{Binding Reaction16}"/>
+				<DataGridTextColumn Header="[17]" Binding="{Binding Reaction17}"/>
+				<DataGridTextColumn Header="[18] Dmg_L" Binding="{Binding Reaction18}"/>
+
+			</DataGrid.Columns>
+
+		</DataGrid>
+		<Grid Grid.Row="2" ColumnDefinitions="*,*">
+			<StackPanel Grid.Column="0" Orientation="Horizontal">
+			</StackPanel>
+			<StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+				<Button Click="Button_Save" Margin="0,0,30,0">Save</Button>
+			</StackPanel>
+		</Grid>
+	</Grid>
+	
+</UserControl>

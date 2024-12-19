@@ -51,6 +51,44 @@ public partial class MainWindow : Window
     private void MenuItem_SystemPrefMagic(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new SystemPrefMagic_Control();
 
     /******************************************
+    * Battle
+    ******************************************/
+    private void MenuItem_BattleAtkp(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new BattleAttackParams_Control();
+    private void MenuItem_BattlePtya(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new BattlePartyAttacks_Control();
+    private void MenuItem_BattlePrzt(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new BattlePrizeTable_Control();
+    private void MenuItem_BattleVtbl(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new BattleVoiceTable_Control();
+    private void MenuItem_BattleLvup(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new BattleLevelUp_Control();
+    private void MenuItem_BattleBons(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new BattleBonusLevels_Control();
+    private void MenuItem_BattleBtlv(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new BattleBattleLevel_Control();
+    private void MenuItem_BattleLvpm(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new BattleLevelParams_Control();
+    private void MenuItem_BattleEnmp(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new BattleEnemyParams_Control();
+    private void MenuItem_BattlePatn(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new BattlePatterns_Control();
+    private void MenuItem_BattlePlrp(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new BattlePlayerParams_Control();
+    private void MenuItem_BattleLimt(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new BattleLimits_Control();
+    private void MenuItem_BattleSumn(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new BattleSummons_Control();
+    private void MenuItem_BattleMagc(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new BattleMagic_Control();
+    private void MenuItem_BattleFmlv(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new BattleFormLevels_Control();
+    private void MenuItem_BattleStop(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new BattleStop_Control();
+
+    /******************************************
+    * Jiminy
+    ******************************************/
+    private void MenuItem_JiminyWorl(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new JiminyWorlds_Control();
+    private void MenuItem_JiminyStor(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new JiminyStory_Control();
+    private void MenuItem_JiminyAlbu(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new JiminyAlbum_Control();
+    private void MenuItem_JiminyChar(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new JiminyCharacters_Control();
+    private void MenuItem_JiminyAnse(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new JiminyAnsemReports_Control();
+    private void MenuItem_JiminyDiag(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new JiminyDiagrams_Control();
+    private void MenuItem_JiminyLimi(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new JiminyLimits_Control();
+    private void MenuItem_JiminyMini(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new JiminyMinigames_Control();
+    private void MenuItem_JiminyQues(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new JiminyQuests_Control();
+    private void MenuItem_JiminyPuzz(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new JiminyPuzzle_Control();
+
+    /******************************************
+    * MixData / Synthesis
+    ******************************************/
+
+    /******************************************
     * Tools
     ******************************************/
     private void MenuItem_ToolsBarEditor(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new BarEditor_Control();

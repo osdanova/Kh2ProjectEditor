@@ -1,0 +1,69 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:common="clr-namespace:Kh2ProjectEditor.Modules.Common"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Kh2ProjectEditor.JiminyDiagrams_Control">
+
+	<UserControl.Resources>
+		<common:JmWorld_Converter x:Key="WorldConverter"/>
+	</UserControl.Resources>
+
+	<Grid RowDefinitions="*,100">
+		<Grid Grid.Row="0" ColumnDefinitions="*,550">
+
+			<!-- Entries -->
+			<Grid Grid.Column="0" RowDefinitions="*">
+				<DataGrid Grid.Row="0" Margin="20" Name="EntryGrid"
+							ItemsSource="{Binding LoadedEntries, Mode=TwoWay}" SelectionChanged="DataGrid_SelectionChanged"
+							GridLinesVisibility="All" BorderThickness="1" BorderBrush="Gray">
+					<DataGrid.Columns>
+
+						<!-- Id -->
+						<DataGridTextColumn Header="" Binding="{Binding ProgressDraw}"/>
+						<DataGridTextColumn Header="Progress Draw Id" Binding="{Binding ProgressDrawId}"/>
+						<DataGridTextColumn Header="" Binding="{Binding ProgressHide}"/>
+						<DataGridTextColumn Header="Progress Hide Id" Binding="{Binding ProgressHideId}"/>
+
+						<DataGridTemplateColumn Header="World">
+							<DataGridTemplateColumn.CellTemplate>
+								<DataTemplate>
+									<ComboBox HorizontalAlignment="Stretch"
+											  SelectedItem="{Binding WorldId, Converter={StaticResource WorldConverter}, Mode=TwoWay}"
+											  ItemsSource="{Binding #EntryGrid.DataContext.WorldOptions}"
+									  />
+								</DataTemplate>
+							</DataGridTemplateColumn.CellTemplate>
+						</DataGridTemplateColumn>
+						<DataGridTextColumn Width="5" Header="" Binding="{Binding WorldId, Converter={StaticResource WorldConverter}}" IsReadOnly="True"/>
+						
+						<DataGridTextColumn Header="Type" Binding="{Binding Type}"/>
+
+					</DataGrid.Columns>
+				</DataGrid>
+			</Grid>
+
+			<!-- Characters -->
+			<DataGrid Grid.Column="1" Margin="20" Name="SubGrid"
+						ItemsSource="{Binding LoadedCharacters, Mode=TwoWay}"
+						GridLinesVisibility="All" BorderThickness="1" BorderBrush="Gray">
+				<DataGrid.Columns>
+
+					<DataGridTextColumn Header="" Binding="{Binding Label}" />
+					<DataGridTextColumn Header="Label Id" Binding="{Binding LabelId}" />
+					<DataGridTextColumn Header="X Pos" Binding="{Binding Xpos}" />
+					<DataGridTextColumn Header="Y Pos" Binding="{Binding Ypos}" />
+					<DataGridTextColumn Header="Draw" Binding="{Binding Draw}" />
+
+				</DataGrid.Columns>
+
+			</DataGrid>
+			
+		</Grid>
+		<StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+			<Button Click="Button_Save" Margin="0,0,30,0">Save</Button>
+		</StackPanel>
+	</Grid>
+	
+</UserControl>

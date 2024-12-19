@@ -28,8 +28,10 @@ namespace Kh2ProjectEditor.Services
             }
             ProjectPath = projectPath;
 
-            MessageService.Instance.LoadFromProject();
+            Message_Service.Instance.LoadFromProject();
             FileSystem_Service.Instance.LoadFromProject();
+            FileBattle_Service.Instance.LoadFromProject();
+            FileJiminy_Service.Instance.LoadFromProject();
             FileObjentry_Service.Instance.LoadFromProject();
         }
 
@@ -48,7 +50,9 @@ namespace Kh2ProjectEditor.Services
         public bool MixDataExists => IsProjectLoaded && File.Exists(PathMixData);
 
         public string PathMsgSysUs => Path.Combine([ProjectPath, "msg", "us", "sys.bar"]);
+        public string PathMsgJmUs => Path.Combine([ProjectPath, "msg", "us", "jm.bar"]);
         public bool MsgSysUsExists => IsProjectLoaded && File.Exists(PathMsgSysUs);
+        public bool MsgJmUsExists => IsProjectLoaded && File.Exists(PathMsgJmUs);
 
         /******************************************
          * Subfiles
@@ -72,6 +76,16 @@ namespace Kh2ProjectEditor.Services
             }
 
             byte[] byteFile = File.ReadAllBytes(PathMsgSysUs);
+            return byteFile;
+        }
+        public byte[] GetMsgJmUs()
+        {
+            if (!MsgJmUsExists)
+            {
+                throw new System.Exception("Trying to read non-existent file");
+            }
+
+            byte[] byteFile = File.ReadAllBytes(PathMsgJmUs);
             return byteFile;
         }
     }

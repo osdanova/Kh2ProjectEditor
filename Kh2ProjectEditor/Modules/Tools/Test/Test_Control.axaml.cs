@@ -51,7 +51,7 @@ public partial class Test_Control : UserControl
         List<TestObject> testObjects = new List<TestObject>();
         using (MemoryStream stream = new MemoryStream(byteFile))
         {
-            for (int i = 0; i < 77; i++)
+            for (int i = 0; i < 207; i++)
             {
                 testObjects.Add(BinaryMapping.ReadObject<TestObject>(stream));
             }

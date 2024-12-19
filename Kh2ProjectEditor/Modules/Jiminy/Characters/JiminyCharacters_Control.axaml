@@ -1,0 +1,69 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:common="clr-namespace:Kh2ProjectEditor.Modules.Common"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Kh2ProjectEditor.JiminyCharacters_Control">
+
+	<UserControl.Resources>
+		<common:JmWorld_Converter x:Key="WorldConverter"/>
+	</UserControl.Resources>
+
+	<Grid RowDefinitions="30,*,50">
+		<StackPanel Grid.Row="0" Orientation="Horizontal" Margin="20,0,0,0">
+		</StackPanel>
+		<!-- TABLE -->
+		<DataGrid Grid.Row="1" Margin="20" Name="DGrid"
+					ItemsSource="{Binding LoadedEntries, Mode=TwoWay}"
+					GridLinesVisibility="All" BorderThickness="1" BorderBrush="Gray">
+
+			<DataGrid.Columns>
+
+				<!-- Id -->
+				<DataGridTextColumn Header="Index" Binding="{Binding Index}"/>
+				<DataGridTemplateColumn Header="World">
+					<DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<ComboBox HorizontalAlignment="Stretch"
+									  SelectedItem="{Binding WorldId, Converter={StaticResource WorldConverter}, Mode=TwoWay}"
+									  ItemsSource="{Binding #DGrid.DataContext.WorldOptions}"
+									  />
+						</DataTemplate>
+					</DataGridTemplateColumn.CellTemplate>
+				</DataGridTemplateColumn>
+				<DataGridTextColumn Width="5" Header="" Binding="{Binding WorldId, Converter={StaticResource WorldConverter}}" IsReadOnly="True"/>
+
+				<DataGridTextColumn Header="Graphic" Binding="{Binding Graphic}"/>
+				<DataGridTextColumn Header="Graphic Base" Binding="{Binding GraphicBase}"/>
+				<DataGridTextColumn Header="" Binding="{Binding Name}" IsReadOnly="True"/>
+				<DataGridTextColumn Header="Name Id" Binding="{Binding NameId}"/>
+				<DataGridTextColumn Header="" Binding="{Binding SourceTitle}" IsReadOnly="True"/>
+				<DataGridTextColumn Header="Source Title Id" Binding="{Binding SourceTitleId}"/>
+				<DataGridTextColumn Header="" Binding="{Binding ObjectName}" IsReadOnly="True"/>
+				<DataGridTextColumn Header="Object Id" Binding="{Binding ObjectId}"/>
+				<DataGridTextColumn Header="" Binding="{Binding Motion}" IsReadOnly="True"/>
+				<DataGridTextColumn Header="Motion Id" Binding="{Binding MotionId}"/>
+				<DataGridTextColumn Header="Stat" Binding="{Binding Stat}"/>
+				<DataGridTextColumn Header="X Pos" Binding="{Binding Xpos}"/>
+				<DataGridTextColumn Header="Y Pos" Binding="{Binding Ypos}"/>
+				<DataGridTextColumn Header="Y Rot" Binding="{Binding Yrot}"/>
+				<DataGridTextColumn Header="X Pos 2" Binding="{Binding Xpos2}"/>
+				<DataGridTextColumn Header="Y Pos 2" Binding="{Binding Ypos2}"/>
+				<DataGridTextColumn Header="Scale" Binding="{Binding Scale}"/>
+				<DataGridTextColumn Header="Scale 2" Binding="{Binding Scale2}"/>
+
+
+			</DataGrid.Columns>
+
+		</DataGrid>
+		<Grid Grid.Row="2" ColumnDefinitions="*,*">
+			<StackPanel Grid.Column="0" Orientation="Horizontal">
+			</StackPanel>
+			<StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+				<Button Click="Button_Save" Margin="0,0,30,0">Save</Button>
+			</StackPanel>
+		</Grid>
+	</Grid>
+	
+</UserControl>

@@ -1,0 +1,82 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Kh2ProjectEditor.BattlePartyAttacks_Control">
+
+	<Grid RowDefinitions="*,100">
+		<Grid Grid.Row="0" ColumnDefinitions="550,*">
+			
+			<!-- Player entries -->
+			<Grid Grid.Column="0" RowDefinitions="*">
+				<DataGrid Grid.Row="0" Margin="20" Name="EntryGrid"
+							ItemsSource="{Binding LoadedEntries, Mode=TwoWay}"
+							GridLinesVisibility="All" BorderThickness="1" BorderBrush="Gray">
+					<DataGrid.Columns>
+
+						<!-- Id -->
+						<DataGridTextColumn Header="" Binding="{Binding PlayerName}"/>
+						<DataGridTextColumn Header="Player Id" Binding="{Binding Id}"/>
+						<DataGridTextColumn Header="Attack Set Id" Binding="{Binding SetId}"/>
+
+					</DataGrid.Columns>
+				</DataGrid>
+			</Grid>
+
+			<!-- Attack Sets -->
+			<Grid Grid.Column="1" RowDefinitions="40,*">
+				<!-- Set selector -->
+				<StackPanel Grid.Row="0" Margin="10" Orientation="Horizontal" HorizontalAlignment="Right">
+					<Label VerticalAlignment="Center">Attack Set</Label>
+					<ComboBox ItemsSource="{Binding SetOptions}" SelectedItem="{Binding SelectedSet}"
+							  Margin="20,0,0,0" VerticalAlignment="Center"/>
+				</StackPanel>
+				
+				<!-- Set objects -->
+				<DataGrid Grid.Row="1" Margin="20" Name="SetGrid"
+							ItemsSource="{Binding LoadedSet, Mode=TwoWay}"
+							GridLinesVisibility="All" BorderThickness="1" BorderBrush="Gray">
+					<DataGrid.Columns>
+
+						<!-- Id -->
+						<DataGridTextColumn Header="Id" Binding="{Binding Id}" />
+						<DataGridTextColumn Header="Type" Binding="{Binding Type}" />
+						<DataGridTextColumn Header="Sub" Binding="{Binding Sub}" />
+						<DataGridTextColumn Header="Combo Offset" Binding="{Binding ComboOffset}" />
+						<DataGridCheckBoxColumn Header="Aerial" Binding="{Binding FlagAerial}" />
+						<DataGridCheckBoxColumn Header="Ground to Air" Binding="{Binding FlagGroundToAir}" />
+						<DataGridCheckBoxColumn Header="Finisher" Binding="{Binding FlagFinisher}" />
+						<DataGridCheckBoxColumn Header="Unk" Binding="{Binding FlagUnk}" />
+						<DataGridTextColumn Header="" Binding="{Binding MotionName}" IsReadOnly="True"/>
+						<DataGridTextColumn Header="Motion" Binding="{Binding Motion}" />
+						<DataGridTextColumn Header="" Binding="{Binding NextMotionName}" IsReadOnly="True"/>
+						<DataGridTextColumn Header="Next Motion" Binding="{Binding NextMotion}" />
+						<DataGridTextColumn Header="Jump" Binding="{Binding Jump}" />
+						<DataGridTextColumn Header="Jump Max" Binding="{Binding JumpMax}" />
+						<DataGridTextColumn Header="Jump Min" Binding="{Binding JumpMin}" />
+						<DataGridTextColumn Header="Speed Min" Binding="{Binding SpeedMin}" />
+						<DataGridTextColumn Header="Speed Max" Binding="{Binding SpeedMax}" />
+						<DataGridTextColumn Header="Near" Binding="{Binding Near}" />
+						<DataGridTextColumn Header="Far" Binding="{Binding Far}" />
+						<DataGridTextColumn Header="Low" Binding="{Binding Low}" />
+						<DataGridTextColumn Header="High" Binding="{Binding High}" />
+						<DataGridTextColumn Header="Inner Min" Binding="{Binding InnerMin}" />
+						<DataGridTextColumn Header="Inner Max" Binding="{Binding InnerMax}" />
+						<DataGridTextColumn Header="Blend Time" Binding="{Binding BlendTime}" />
+						<DataGridTextColumn Header="Dist Adjust" Binding="{Binding DistAdjust}" />
+						<DataGridTextColumn Header="" Binding="{Binding AbilityName}" IsReadOnly="True"/>
+						<DataGridTextColumn Header="Ability Id" Binding="{Binding AbilityId}" />
+						<DataGridTextColumn Header="Score" Binding="{Binding Score}" />
+
+					</DataGrid.Columns>
+
+				</DataGrid>
+			</Grid>
+		</Grid>
+		<StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+			<Button Click="Button_Save" Margin="0,0,30,0">Save</Button>
+		</StackPanel>
+	</Grid>
+	
+</UserControl>

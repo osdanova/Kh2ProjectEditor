@@ -1,0 +1,66 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Kh2ProjectEditor.BattleLevelUp_Control">
+
+	<Grid RowDefinitions="*,100">
+		<Grid Grid.Row="0" ColumnDefinitions="550,*">
+
+			<!-- Player entries -->
+			<Grid Grid.Column="0" RowDefinitions="*">
+				<DataGrid Grid.Row="0" Margin="20" Name="PointerGrid"
+							ItemsSource="{Binding LoadedPointers, Mode=TwoWay}"
+							GridLinesVisibility="All" BorderThickness="1" BorderBrush="Gray">
+					<DataGrid.Columns>
+
+						<!-- Id -->
+						<DataGridTextColumn Header="" Binding="{Binding PlayerName}" IsReadOnly="True"/>
+						<DataGridTextColumn Header="Character Id" Binding="{Binding Id}" IsReadOnly="True"/>
+						<DataGridTextColumn Header="Level Up Set Id" Binding="{Binding EntrySetId}"/>
+
+					</DataGrid.Columns>
+				</DataGrid>
+			</Grid>
+
+			<!-- Attack Sets -->
+			<Grid Grid.Column="1" RowDefinitions="40,*">
+				<!-- Set selector -->
+				<StackPanel Grid.Row="0" Margin="10" Orientation="Horizontal" HorizontalAlignment="Right">
+					<Label VerticalAlignment="Center">Level Up Set</Label>
+					<ComboBox ItemsSource="{Binding SetOptions}" SelectedItem="{Binding SelectedSet}"
+							  Margin="20,0,0,0" VerticalAlignment="Center"/>
+				</StackPanel>
+
+				<!-- Set objects -->
+				<DataGrid Grid.Row="1" Margin="20" Name="SetGrid"
+							ItemsSource="{Binding LoadedSet, Mode=TwoWay}"
+							GridLinesVisibility="All" BorderThickness="1" BorderBrush="Gray">
+					<DataGrid.Columns>
+
+						<!-- Id -->
+						<DataGridTextColumn Header="Level" Binding="{Binding Level}" IsReadOnly="True"/>
+						<DataGridTextColumn Header="Exp" Binding="{Binding Exp}" />
+						<DataGridTextColumn Header="Strength" Binding="{Binding Strength}" />
+						<DataGridTextColumn Header="Magic" Binding="{Binding Magic}" />
+						<DataGridTextColumn Header="Defense" Binding="{Binding Defense}" />
+						<DataGridTextColumn Header="Ap" Binding="{Binding Ap}" />
+						<DataGridTextColumn Header="" Binding="{Binding AbilitySwordName}" />
+						<DataGridTextColumn Header="Ability Sword Id" Binding="{Binding AbilitySwordId}" />
+						<DataGridTextColumn Header="" Binding="{Binding AbilityShieldName}" />
+						<DataGridTextColumn Header="Ability Shield Id" Binding="{Binding AbilityShieldId}" />
+						<DataGridTextColumn Header="" Binding="{Binding AbilityStaffName}" />
+						<DataGridTextColumn Header="Ability Staff Id" Binding="{Binding AbilityStaffId}" />
+
+					</DataGrid.Columns>
+
+				</DataGrid>
+			</Grid>
+		</Grid>
+		<StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+			<Button Click="Button_Save" Margin="0,0,30,0">Save</Button>
+		</StackPanel>
+	</Grid>
+	
+</UserControl>

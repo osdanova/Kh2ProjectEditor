@@ -1,0 +1,430 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Kh2ProjectEditor.SystemPrefSstm_Control">
+
+	<TabControl TabStripPlacement="Left">
+		<TabItem Header="General">
+			<ScrollViewer>
+				<StackPanel HorizontalAlignment="Left">
+					<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+						<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">CeilingStop</Label>
+						<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.CeilingStop}"></TextBox>
+					</DockPanel>
+					<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+						<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">CeilingDisableCommandTime</Label>
+						<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.CeilingDisableCommandTime}"></TextBox>
+					</DockPanel>
+					<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+						<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">HangRangeH</Label>
+						<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.HangRangeH}"></TextBox>
+					</DockPanel>
+					<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+						<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">HangRangeL</Label>
+						<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.HangRangeL}"></TextBox>
+					</DockPanel>
+					<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+						<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">HangRangeXZ</Label>
+						<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.HangRangeXZ}"></TextBox>
+					</DockPanel>
+					<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+						<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">FallMax</Label>
+						<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.FallMax}"></TextBox>
+					</DockPanel>
+					<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+						<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">BlowBrakeXZ</Label>
+						<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.BlowBrakeXZ}"></TextBox>
+					</DockPanel>
+					<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+						<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">BlowMinXZ</Label>
+						<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.BlowMinXZ}"></TextBox>
+					</DockPanel>
+					<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+						<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">BlowBrakeUp</Label>
+						<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.BlowBrakeUp}"></TextBox>
+					</DockPanel>
+					<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+						<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">BlowUp</Label>
+						<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.BlowUp}"></TextBox>
+					</DockPanel>
+					<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+						<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">BlowSpeed</Label>
+						<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.BlowSpeed}"></TextBox>
+					</DockPanel>
+					<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+						<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">BlowToHitBack</Label>
+						<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.BlowToHitBack}"></TextBox>
+					</DockPanel>
+					<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+						<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">HitBack</Label>
+						<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.HitBack}"></TextBox>
+					</DockPanel>
+					<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+						<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">HitBackSmall</Label>
+						<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.HitBackSmall}"></TextBox>
+					</DockPanel>
+					<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+						<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">HitBackToJump</Label>
+						<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.HitBackToJump}"></TextBox>
+					</DockPanel>
+					<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+						<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">FlyBlowBrake</Label>
+						<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.FlyBlowBrake}"></TextBox>
+					</DockPanel>
+					<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+						<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">FlyBlowStop</Label>
+						<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.FlyBlowStop}"></TextBox>
+					</DockPanel>
+					<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+						<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">FlyBlowUpAdjust</Label>
+						<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.FlyBlowUpAdjust}"></TextBox>
+					</DockPanel>
+					<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+						<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">MagicJump</Label>
+						<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.MagicJump}"></TextBox>
+					</DockPanel>
+					<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+						<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">LockOnRange</Label>
+						<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.LockOnRange}"></TextBox>
+					</DockPanel>
+					<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+						<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">LockOnReleaseRange</Label>
+						<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.LockOnReleaseRange}"></TextBox>
+					</DockPanel>
+					<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+						<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">StunRecov</Label>
+						<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.StunRecov}"></TextBox>
+					</DockPanel>
+					<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+						<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">StunRecovHp</Label>
+						<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.StunRecovHp}"></TextBox>
+					</DockPanel>
+					<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+						<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">StunRelax</Label>
+						<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.StunRelax}"></TextBox>
+					</DockPanel>
+					<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+						<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">DriveZako</Label>
+						<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.DriveZako}"></TextBox>
+					</DockPanel>
+					<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+						<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">ChangeTimeZako</Label>
+						<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.ChangeTimeZako}"></TextBox>
+					</DockPanel>
+					<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+						<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">DriveTime</Label>
+						<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.DriveTime}"></TextBox>
+					</DockPanel>
+					<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+						<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">DriveTimeRelax</Label>
+						<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.DriveTimeRelax}"></TextBox>
+					</DockPanel>
+					<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+						<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">ChangeTimeAddRate</Label>
+						<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.ChangeTimeAddRate}"></TextBox>
+					</DockPanel>
+					<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+						<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">ChangeTimeSubRate</Label>
+						<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.ChangeTimeSubRate}"></TextBox>
+					</DockPanel>
+					<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+						<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">MpDriveRate</Label>
+						<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.MpDriveRate}"></TextBox>
+					</DockPanel>
+					<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+						<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">MpToMpDrive</Label>
+						<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.MpToMpDrive}"></TextBox>
+					</DockPanel>
+					<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+						<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">AttackDistToSpeed</Label>
+						<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.AttackDistToSpeed}"></TextBox>
+					</DockPanel>
+				</StackPanel>
+			</ScrollViewer>
+			
+		</TabItem>
+		<TabItem Header="Summon">
+			<StackPanel HorizontalAlignment="Left">
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Time Relax</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.SummonTimeRelax}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Pray Time</Label>
+					<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.SummonPrayTime}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Pray Time Skip</Label>
+					<TextBox Width="{Binding SideSize}" Margin="5,0,0,0" Text="{Binding SystemPrefs.SummonPrayTimeSkip}"></TextBox>
+				</DockPanel>
+			</StackPanel>
+		</TabItem>
+		<TabItem Header="Anti Form">
+			<StackPanel HorizontalAlignment="Left">
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Drive Count</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.AntiFormDriveCount}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Sub Count</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.AntiFormSubCount}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Damage Rate</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.AntiFormDamageRate}"></TextBox>
+				</DockPanel>
+			</StackPanel>
+		</TabItem>
+		<TabItem Header="Final Form">
+			<StackPanel HorizontalAlignment="Left">
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Rate</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.FinalFormRate}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">MulRate</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.FinalFormMulRate}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Max Rate</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.FinalFormMaxRate}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Sub Count</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.FinalFormSubCount}"></TextBox>
+				</DockPanel>
+			</StackPanel>
+		</TabItem>
+		<TabItem Header="Carpet">
+			<StackPanel HorizontalAlignment="Left">
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Dash Inner</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.AlCarpetDashInner}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Dash Delay</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.AlCarpetDashDelay}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Dash Accel</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.AlCarpetDashAccel}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Dash Brake</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.AlCarpetDashBrake}"></TextBox>
+				</DockPanel>
+			</StackPanel>
+		</TabItem>
+		<TabItem Header="Mickey">
+			<StackPanel HorizontalAlignment="Left">
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Charge Wait</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.MickeyChargeWait}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Down Rate</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.MickeyDownRate}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Min Rate</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.MickeyMinRate}"></TextBox>
+				</DockPanel>
+			</StackPanel>
+		</TabItem>
+		<TabItem Header="Lion">
+			<StackPanel HorizontalAlignment="Left">
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Dash Drift Inner</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.LkDashDriftInner}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Dash Drift Time</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.LkDashDriftTime}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Dash Accel Drift</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.LkDashAccelDrift}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Dash Accel Stop</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.LkDashAccelStop}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Dash Drift Speed</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.LkDashDriftSpeed}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Magic Jump</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.LkMagicJump}"></TextBox>
+				</DockPanel>
+			</StackPanel>
+		</TabItem>
+		<TabItem Header="Mermaid">
+			<StackPanel HorizontalAlignment="Left">
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Swim Speed</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.LmSwimSpeed}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Swim Control</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.LmSwimControl}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Swim Accel</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.LmSwimAccel}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Dolphin Accel</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.LmDolphinAccel}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Dolphin Speed Max</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.LmDolphinSpeedMax}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Dolphin Speed Min</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.LmDolphinSpeedMin}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Dolphin Speed Max Dist</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.LmDolphinSpeedMaxDist}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Dolphin Speed Min Dist</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.LmDolphinSpeedMinDist}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Dolphin Rot Max</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.LmDolphinRotMax}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Dolphin Rot Dist</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.LmDolphinRotDist}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Dolphin Rot Max Dist</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.LmDolphinRotMaxDist}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Dolphin Dist To Time</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.LmDolphinDistToTime}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Dolphfloatime Max</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.LmDolphfloatimeMax}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Dolphfloatime Min</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.LmDolphfloatimeMin}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Dolphin Near Speed</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.LmDolphinNearSpeed}"></TextBox>
+				</DockPanel>
+			</StackPanel>
+		</TabItem>
+		<TabItem Header="Abilities">
+			<StackPanel HorizontalAlignment="Left">
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Drive Berserk Attack</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.DriveBerserkAttack}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Mp Haste</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.MpHaste}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Mp Hastera</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.MpHasra}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Mp Hastega</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.MpHasga}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Draw Range</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.DrawRange}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Combo Damage Up</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.ComboDamageUp}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Reaction Damage Up</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.ReactionDamageUp}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Damage Drive</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.DamageDrive}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Drive Boost</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.DriveBoost}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Form Boost</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.FormBoost}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Exp Chance</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.ExpChance}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Defender</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.Defender}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Element Up</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.ElementUp}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Damage Aspir</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.DamageAspil}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Hyper Heal</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.HyperHeal}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Combination Boost</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.CombiBoost}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Prize Up</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.PrizeUp}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Luck Up</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.LuckUp}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Item Up</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.ItemUp}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Auto Heal</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.AutoHeal}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Summon Boost</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.SummonBoost}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Drive Convert</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.DriveConvert}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Defence Master</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.DefenceMaster}"></TextBox>
+				</DockPanel>
+				<DockPanel Width="{Binding RowSize}" Margin="0,5,0,0">
+					<Label Width="{Binding SideSize}" Margin="10,0,0,0" VerticalAlignment="Center">Defence Master Ratio</Label>
+					<TextBox Width="{Binding SideSize}" DockPanel.Dock="Right" Margin="5,0,0,0" Text="{Binding SystemPrefs.DefenceMasterRatio}"></TextBox>
+				</DockPanel>
+			</StackPanel>
+		</TabItem>
+	</TabControl>
+	
+</UserControl>

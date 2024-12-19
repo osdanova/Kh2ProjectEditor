@@ -1,0 +1,127 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Kh2ProjectEditor.BattlePlayerParams_Control">
+
+	<Grid RowDefinitions="30,*,50">
+		<StackPanel Grid.Row="0" Orientation="Horizontal" Margin="20,0,0,0">
+			<CheckBox IsChecked="{Binding ShowStats}" Margin="20,0,0,0">Stats</CheckBox>
+			<CheckBox IsChecked="{Binding ShowSlots}" Margin="20,0,0,0">Slots</CheckBox>
+			<CheckBox IsChecked="{Binding ShowInventory}" Margin="20,0,0,0">Inventory</CheckBox>
+		</StackPanel>
+		<!-- TABLE -->
+		<DataGrid Grid.Row="1" Margin="20" Name="DGrid"
+					ItemsSource="{Binding LoadedEntries, Mode=TwoWay}"
+					GridLinesVisibility="All" BorderThickness="1" BorderBrush="Gray">
+
+			<DataGrid.Columns>
+
+				<!-- Id -->
+				<DataGridTextColumn Header="Version" Binding="{Binding Version}"/>
+				<DataGridTextColumn Header="" Binding="{Binding CharacterName}" IsReadOnly="True"/>
+				<DataGridTextColumn Header="CharacterId" Binding="{Binding CharacterId}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowStats}" Header="Hp" Binding="{Binding Hp}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowStats}" Header="Mp" Binding="{Binding Mp}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowStats}" Header="Ap" Binding="{Binding Ap}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowStats}" Header="Strength" Binding="{Binding Strength}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowStats}" Header="Magic" Binding="{Binding Magic}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowStats}" Header="Defense" Binding="{Binding Defense}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowSlots}" Header="Armor Slots" Binding="{Binding ArmorSlots}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowSlots}" Header="Accessory Slots" Binding="{Binding AccessorySlots}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowSlots}" Header="Item Slots" Binding="{Binding ItemSlots}"/>
+
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item1Flag}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item1Name}" IsReadOnly="True"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="Item 1 Id" Binding="{Binding Item1Id}"/>
+
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item2Flag}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item2Name}" IsReadOnly="True"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="Item 2 Id" Binding="{Binding Item2Id}"/>
+
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item3Flag}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item3Name}" IsReadOnly="True"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="Item 3 Id" Binding="{Binding Item3Id}"/>
+
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item4Flag}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item4Name}" IsReadOnly="True"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="Item 4 Id" Binding="{Binding Item4Id}"/>
+
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item5Flag}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item5Name}" IsReadOnly="True"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="Item 5 Id" Binding="{Binding Item5Id}"/>
+
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item6Flag}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item6Name}" IsReadOnly="True"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="Item 6 Id" Binding="{Binding Item6Id}"/>
+
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item7Flag}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item7Name}" IsReadOnly="True"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="Item 7 Id" Binding="{Binding Item7Id}"/>
+
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item8Flag}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item8Name}" IsReadOnly="True"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="Item 8 Id" Binding="{Binding Item8Id}"/>
+
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item9Flag}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item9Name}" IsReadOnly="True"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="Item 9 Id" Binding="{Binding Item9Id}"/>
+
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item10Flag}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item10Name}" IsReadOnly="True"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="Item 10 Id" Binding="{Binding Item10Id}"/>
+
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item11Flag}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item11Name}" IsReadOnly="True"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="Item 11 Id" Binding="{Binding Item11Id}"/>
+
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item12Flag}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item12Name}" IsReadOnly="True"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="Item 12 Id" Binding="{Binding Item12Id}"/>
+
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item13Flag}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item13Name}" IsReadOnly="True"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="Item 13 Id" Binding="{Binding Item13Id}"/>
+
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item14Flag}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item14Name}" IsReadOnly="True"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="Item 14 Id" Binding="{Binding Item14Id}"/>
+
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item15Flag}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item15Name}" IsReadOnly="True"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="Item 15 Id" Binding="{Binding Item15Id}"/>
+
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item16Flag}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item16Name}" IsReadOnly="True"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="Item 16 Id" Binding="{Binding Item16Id}"/>
+
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item17Flag}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item17Name}" IsReadOnly="True"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="Item 17 Id" Binding="{Binding Item17Id}"/>
+
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item18Flag}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item18Name}" IsReadOnly="True"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="Item 18 Id" Binding="{Binding Item18Id}"/>
+
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item19Flag}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item19Name}" IsReadOnly="True"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="Item 19 Id" Binding="{Binding Item19Id}"/>
+
+				<DataGridCheckBoxColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item20Flag}"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="" Binding="{Binding Item20Name}" IsReadOnly="True"/>
+				<DataGridTextColumn IsVisible="{Binding ShowInventory}" Header="Item 20 Id" Binding="{Binding Item20Id}"/>
+
+			</DataGrid.Columns>
+
+		</DataGrid>
+		<Grid Grid.Row="2" ColumnDefinitions="*,*">
+			<StackPanel Grid.Column="0" Orientation="Horizontal">
+			</StackPanel>
+			<StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+				<Button Click="Button_Save" Margin="0,0,30,0">Save</Button>
+			</StackPanel>
+		</Grid>
+	</Grid>
+	
+</UserControl>

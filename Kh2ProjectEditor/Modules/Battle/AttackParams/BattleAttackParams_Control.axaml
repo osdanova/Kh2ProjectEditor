@@ -1,0 +1,168 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:local="clr-namespace:Kh2ProjectEditor.Modules.Battle.AttackParams"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Kh2ProjectEditor.BattleAttackParams_Control">
+
+	<UserControl.Resources>
+		<local:BattleAttackParamsType_Converter x:Key="TypeConverter"/>
+		<local:BattleAttackParamsTeam_Converter x:Key="TeamConverter"/>
+		<local:BattleAttackParamsElement_Converter x:Key="ElementConverter"/>
+		<local:BattleAttackParamsRefact_Converter x:Key="RefactConverter"/>
+		<local:BattleAttackParamsTrReaction_Converter x:Key="TrReactionConverter"/>
+		<local:BattleAttackParamsKind_Converter x:Key="KindConverter"/>
+	</UserControl.Resources>
+
+	<Grid RowDefinitions="30,*,50">
+		<StackPanel Grid.Row="0" Orientation="Horizontal" Margin="20,0,0,0">
+		</StackPanel>
+		<!-- TABLE -->
+		<DataGrid Grid.Row="1" Margin="20" Name="DGrid"
+					ItemsSource="{Binding DisplayEntries, Mode=TwoWay}"
+					GridLinesVisibility="All" BorderThickness="1" BorderBrush="Gray">
+
+			<DataGrid.Columns>
+
+				<!-- Id -->
+				<DataGridTextColumn Header="Id" Binding="{Binding Id}" />
+				<DataGridTextColumn Header="Version" Binding="{Binding Level}" />
+				<DataGridTextColumn Header="" Binding="{Binding EntryDesc}"/>
+
+				<DataGridTemplateColumn Header="Type">
+					<DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<ComboBox HorizontalAlignment="Stretch"
+									  SelectedItem="{Binding Type, Converter={StaticResource TypeConverter}, Mode=TwoWay}"
+                                      ItemsSource="{Binding #DGrid.DataContext.EntryTypeOptions}"
+									  />
+						</DataTemplate>
+					</DataGridTemplateColumn.CellTemplate>
+				</DataGridTemplateColumn>
+				<DataGridTextColumn Width="5" Header="" Binding="{Binding Type, Converter={StaticResource TypeConverter}}" IsReadOnly="True"/>
+				
+				<DataGridTextColumn Header="Base Adjust" Binding="{Binding BaseAdjust}" />
+				<DataGridTextColumn Header="Power" Binding="{Binding Power}" />
+
+				<DataGridTemplateColumn Header="Team">
+					<DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<ComboBox HorizontalAlignment="Stretch"
+									  SelectedItem="{Binding Team, Converter={StaticResource TeamConverter}, Mode=TwoWay}"
+                                      ItemsSource="{Binding #DGrid.DataContext.EntryTeamOptions}"
+									  />
+						</DataTemplate>
+					</DataGridTemplateColumn.CellTemplate>
+				</DataGridTemplateColumn>
+				<DataGridTextColumn Width="5" Header="" Binding="{Binding Team, Converter={StaticResource TeamConverter}}" IsReadOnly="True"/>
+				
+				<DataGridTemplateColumn Header="Element">
+					<DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<ComboBox HorizontalAlignment="Stretch"
+									  SelectedItem="{Binding Element, Converter={StaticResource ElementConverter}, Mode=TwoWay}"
+                                      ItemsSource="{Binding #DGrid.DataContext.EntryElementOptions}"
+									  />
+						</DataTemplate>
+					</DataGridTemplateColumn.CellTemplate>
+				</DataGridTemplateColumn>
+				<DataGridTextColumn Width="5" Header="" Binding="{Binding Element, Converter={StaticResource ElementConverter}}" IsReadOnly="True"/>
+
+				<DataGridTextColumn Header="Reaction Id" Binding="{Binding ReactionId}" />
+				<DataGridTextColumn Header="Effect" Binding="{Binding Effect}" />
+				<DataGridTextColumn Header="Knockback Strength 1" Binding="{Binding KnockbackStr1}" />
+				<DataGridTextColumn Header="Knockback Strength 2" Binding="{Binding KnockbackStr2}" />
+				<DataGridTextColumn Header="Unk16" Binding="{Binding Unk16}" />
+				<DataGridCheckBoxColumn Header="Flag Bg Hit" Binding="{Binding FlagBgHit}" />
+				<DataGridCheckBoxColumn Header="Flag Limit PAX" Binding="{Binding FlagLimitPAX}" />
+				<DataGridCheckBoxColumn Header="Flag Land" Binding="{Binding FlagLand}" />
+				<DataGridCheckBoxColumn Header="Flag Capture Pax" Binding="{Binding FlagCapturePax}" />
+				<DataGridCheckBoxColumn Header="Flag Thank You" Binding="{Binding FlagThankYou}" />
+				<DataGridCheckBoxColumn Header="Flag Kill Boss" Binding="{Binding FlagKillBoss}" />
+
+
+				<DataGridTemplateColumn Header="Refact Self">
+					<DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<ComboBox HorizontalAlignment="Stretch"
+									  SelectedItem="{Binding RefactSelf, Converter={StaticResource RefactConverter}, Mode=TwoWay}"
+                                      ItemsSource="{Binding #DGrid.DataContext.EntryRefactOptions}"
+									  />
+						</DataTemplate>
+					</DataGridTemplateColumn.CellTemplate>
+				</DataGridTemplateColumn>
+				<DataGridTextColumn Width="5" Header="" Binding="{Binding RefactSelf, Converter={StaticResource RefactConverter}}" IsReadOnly="True"/>
+
+				<DataGridTemplateColumn Header="Refact Other">
+					<DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<ComboBox HorizontalAlignment="Stretch"
+									  SelectedItem="{Binding RefactOther, Converter={StaticResource RefactConverter}, Mode=TwoWay}"
+                                      ItemsSource="{Binding #DGrid.DataContext.EntryRefactOptions}"
+									  />
+						</DataTemplate>
+					</DataGridTemplateColumn.CellTemplate>
+				</DataGridTemplateColumn>
+				<DataGridTextColumn Width="5" Header="" Binding="{Binding RefactOther, Converter={StaticResource RefactConverter}}" IsReadOnly="True"/>
+
+				<DataGridTextColumn Header="Reflect Motion" Binding="{Binding ReflectMotion}" />
+				<DataGridTextColumn Header="Reflect Hit Back" Binding="{Binding ReflectHitBack}" />
+				<DataGridTextColumn Header="Reflect Act" Binding="{Binding ReflectAct}" />
+				<DataGridTextColumn Header="Hit Sound Effect Id" Binding="{Binding HitSoundEffectId}" />
+				<DataGridTextColumn Header="Reflect RC" Binding="{Binding ReflectRC}" />
+				<DataGridTextColumn Header="Ref Range" Binding="{Binding RefRange}" />
+				<DataGridTextColumn Header="Ref Angle" Binding="{Binding RefAngle}" />
+				<DataGridTextColumn Header="Damage Effect" Binding="{Binding DamageEffect}" />
+				<DataGridTextColumn Header="Switch Value" Binding="{Binding SwitchValue}" />
+				<DataGridTextColumn Header="Frames Per Hit" Binding="{Binding FramesPerHit}" />
+				<DataGridTextColumn Header="Floor Check" Binding="{Binding FloorCheck}" />
+				<DataGridTextColumn Header="Add Drive" Binding="{Binding AddDrive}" />
+				<DataGridTextColumn Header="Revenge" Binding="{Binding Revenge}" />
+
+				<DataGridTemplateColumn Header="Terrain Reaction">
+					<DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<ComboBox HorizontalAlignment="Stretch"
+									  SelectedItem="{Binding TrReaction, Converter={StaticResource TrReactionConverter}, Mode=TwoWay}"
+                                      ItemsSource="{Binding #DGrid.DataContext.EntryTrReactionOptions}"
+									  />
+						</DataTemplate>
+					</DataGridTemplateColumn.CellTemplate>
+				</DataGridTemplateColumn>
+				<DataGridTextColumn Width="5" Header="" Binding="{Binding TrReaction, Converter={StaticResource TrReactionConverter}}" IsReadOnly="True"/>
+
+				<DataGridTextColumn Header="Combo Group" Binding="{Binding ComboGroup}" />
+				<DataGridTextColumn Header="Random Effect" Binding="{Binding RandomEffect}" />
+
+				<DataGridTemplateColumn Header="Kind">
+					<DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<ComboBox HorizontalAlignment="Stretch"
+									  SelectedItem="{Binding Kind, Converter={StaticResource KindConverter}, Mode=TwoWay}"
+                                      ItemsSource="{Binding #DGrid.DataContext.EntryKindOptions}"
+									  />
+						</DataTemplate>
+					</DataGridTemplateColumn.CellTemplate>
+				</DataGridTemplateColumn>
+				<DataGridTextColumn Width="5" Header="" Binding="{Binding Kind, Converter={StaticResource KindConverter}}" IsReadOnly="True"/>
+
+				<DataGridTextColumn Header="HP Gain" Binding="{Binding HpGain}" />
+
+
+			</DataGrid.Columns>
+
+		</DataGrid>
+		<Grid Grid.Row="2" ColumnDefinitions="*,*">
+			<StackPanel Grid.Column="0" Orientation="Horizontal">
+				<Label VerticalAlignment="Center" Margin="30,0,0,0">Filter</Label>
+				<TextBox Text="{Binding FilterText}" Height="20" Width="100" Margin="10,0,0,0"></TextBox>
+				<Button Click="Button_ApplyFilter" Margin="30,0,0,0">Apply</Button>
+			</StackPanel>
+			<StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+				<Button Click="Button_Save" Margin="0,0,30,0">Save</Button>
+			</StackPanel>
+		</Grid>
+	</Grid>
+	
+</UserControl>

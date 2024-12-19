@@ -31,35 +31,35 @@
 				</MenuItem>
 			</MenuItem>
 			<MenuItem Header="Battle">
-				<MenuItem Header="Attack Params"></MenuItem>
-				<MenuItem Header="Party Attacks"></MenuItem>
-				<MenuItem Header="Prize Table"></MenuItem>
-				<MenuItem Header="Voice Table"></MenuItem>
-				<MenuItem Header="Level Up Bonuses"></MenuItem>
-				<MenuItem Header="Event Bonuses"></MenuItem>
-				<MenuItem Header="Battle Level"></MenuItem>
-				<MenuItem Header="Level Parameters"></MenuItem>
-				<MenuItem Header="Enemy Parameters"></MenuItem>
-				<MenuItem Header="Patterns"></MenuItem>
-				<MenuItem Header="Player Parameters"></MenuItem>
-				<MenuItem Header="Limits"></MenuItem>
-				<MenuItem Header="Summons"></MenuItem>
-				<MenuItem Header="Magic"></MenuItem>
+				<MenuItem Header="Attack Params" Click="MenuItem_BattleAtkp"></MenuItem>
+				<MenuItem Header="Party Attacks" Click="MenuItem_BattlePtya"></MenuItem>
+				<MenuItem Header="Prize Table" Click="MenuItem_BattlePrzt"></MenuItem>
+				<MenuItem Header="Voice Table" Click="MenuItem_BattleVtbl"></MenuItem>
+				<MenuItem Header="Level Up Bonuses" Click="MenuItem_BattleLvup"></MenuItem>
+				<MenuItem Header="Bonus Levels" Click="MenuItem_BattleBons"></MenuItem>
+				<MenuItem Header="Battle Level" Click="MenuItem_BattleBtlv"></MenuItem>
+				<MenuItem Header="Level Params" Click="MenuItem_BattleLvpm"></MenuItem>
+				<MenuItem Header="Enemy Params" Click="MenuItem_BattleEnmp"></MenuItem>
+				<MenuItem Header="Patterns" Click="MenuItem_BattlePatn"></MenuItem>
+				<MenuItem Header="Player Parameters" Click="MenuItem_BattlePlrp"></MenuItem>
+				<MenuItem Header="Limits" Click="MenuItem_BattleLimt"></MenuItem>
+				<MenuItem Header="Summons" Click="MenuItem_BattleSumn"></MenuItem>
+				<MenuItem Header="Magic" Click="MenuItem_BattleMagc"></MenuItem>
 				<MenuItem Header="Vibration" IsVisible="False"></MenuItem>
-				<MenuItem Header="Form Levels"></MenuItem>
-				<MenuItem Header="Stop"></MenuItem>
+				<MenuItem Header="Form Levels" Click="MenuItem_BattleFmlv"></MenuItem>
+				<MenuItem Header="Stop" Click="MenuItem_BattleStop"></MenuItem>
 			</MenuItem>
 			<MenuItem Header="Jiminy">
-				<MenuItem Header="World"></MenuItem>
-				<MenuItem Header="Story" IsVisible="False"></MenuItem>
-				<MenuItem Header="Album" IsVisible="False"></MenuItem>
-				<MenuItem Header="Characters" IsVisible="False"></MenuItem>
-				<MenuItem Header="Ansem Reports" IsVisible="False"></MenuItem>
-				<MenuItem Header="Dialog" IsVisible="False"></MenuItem>
-				<MenuItem Header="Limits" IsVisible="False"></MenuItem>
-				<MenuItem Header="Minigames" IsVisible="False"></MenuItem>
-				<MenuItem Header="Quests" IsVisible="False"></MenuItem>
-				<MenuItem Header="Puzzle"></MenuItem>
+				<MenuItem Header="World" Click="MenuItem_JiminyWorl"></MenuItem>
+				<MenuItem Header="Story" Click="MenuItem_JiminyStor"></MenuItem>
+				<MenuItem Header="Album" Click="MenuItem_JiminyAlbu"></MenuItem>
+				<MenuItem Header="Characters" Click="MenuItem_JiminyChar"></MenuItem>
+				<MenuItem Header="Ansem Reports" Click="MenuItem_JiminyAnse"></MenuItem>
+				<MenuItem Header="Diagrams" Click="MenuItem_JiminyDiag"></MenuItem>
+				<MenuItem Header="Limits" Click="MenuItem_JiminyLimi"></MenuItem>
+				<MenuItem Header="Minigames" Click="MenuItem_JiminyMini"></MenuItem>
+				<MenuItem Header="Missions" Click="MenuItem_JiminyQues"></MenuItem>
+				<MenuItem Header="Puzzle" Click="MenuItem_JiminyPuzz"></MenuItem>
 			</MenuItem>
 			<MenuItem Header="Synthesis">
 				<MenuItem Header="Recipes"></MenuItem>

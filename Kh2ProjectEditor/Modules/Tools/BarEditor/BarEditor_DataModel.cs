@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using Kh2ProjectEditor.Utils;
 using KhLib.Kh2;
-using KhLib.Kh2.Motion;
+using KhLib.Kh2.Dictionaries;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
@@ -134,12 +134,12 @@ namespace Kh2ProjectEditor.Modules.Tools.BarEditor
         {
             public int Position { get; set; }
             public BinaryArchive.Entry Entry { get; set; }
-            public MotionTag MotionTag
+            public Motion_Enum MotionTag
             {
                 get
                 {
                     int motionId = Position / 4;
-                    return (MotionTag)motionId;
+                    return (Motion_Enum)motionId;
                 }
             }
         }

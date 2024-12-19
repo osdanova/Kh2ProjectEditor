@@ -32,12 +32,20 @@
     <Compile Update="Modules\ObjectEntries\ObjectEntries_Control.axaml.cs">
       <DependentUpon>ObjectEntries_Control.axaml</DependentUpon>
     </Compile>
-    <Compile Update="Modules\System\Preferences\Magic\SystemPrefMagic_Control.axaml.cs">
+    <Compile Update="Modules\KhSystem\Preferences\Magic\SystemPrefMagic_Control.axaml.cs">
       <DependentUpon>SystemPrefMagic_Control.axaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <UpToDateCheckInput Remove="Modules\System\Preferences\Player\SystemPrefPlayer_Control.axaml" />
+    <UpToDateCheckInput Remove="Modules\KhSystem\Preferences\Player\SystemPrefPlayer_Control.axaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Modules\Jiminy\Diagrams\JiminyDiagrams_Control.axaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Modules\Jiminy\Limits\JiminyLimits_Control.axaml" />
   </ItemGroup>
 </Project>
