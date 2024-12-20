@@ -87,6 +87,10 @@ public partial class MainWindow : Window
     /******************************************
     * MixData / Synthesis
     ******************************************/
+    private void MenuItem_MixDataReci(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new MixDataRecipes_Control();
+    private void MenuItem_MixDataCond(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new MixDataConditions_Control();
+    private void MenuItem_MixDataLeve(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new MixDataLevels_Control();
+    private void MenuItem_MixDataExp(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new MixDataExperience_Control();
 
     /******************************************
     * Tools

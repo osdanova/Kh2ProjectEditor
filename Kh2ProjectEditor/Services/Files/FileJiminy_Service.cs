@@ -67,7 +67,7 @@ namespace Kh2ProjectEditor.Services.Files
         }
 
         // Saves the given subfile to the jiminy file
-        public void SaveBarFile(string filename, string prefFilename = "")
+        public void SaveBarFile(string filename)
         {
             foreach (BinaryArchive.Entry entry in JiminyBar.Entries)
             {

@@ -1,0 +1,87 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:local="clr-namespace:Kh2ProjectEditor.Modules.MixData.Recipes"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Kh2ProjectEditor.MixDataRecipes_Control">
+
+	<UserControl.Resources>
+		<local:MixDataRecipesType_Converter x:Key="TypeConverter"/>
+		<local:MixDataRecipesRank_Converter x:Key="RankConverter"/>
+	</UserControl.Resources>
+
+	<Grid RowDefinitions="30,*,50">
+		<StackPanel Grid.Row="0" Orientation="Horizontal" Margin="20,0,0,0">
+		</StackPanel>
+		<!-- TABLE -->
+		<DataGrid Grid.Row="1" Margin="20" Name="DGrid"
+					ItemsSource="{Binding LoadedEntries, Mode=TwoWay}"
+					GridLinesVisibility="All" BorderThickness="1" BorderBrush="Gray">
+
+			<DataGrid.Columns>
+
+				<DataGridTextColumn Header="" Binding="{Binding Recipe}" IsReadOnly="True"/>
+				<DataGridTextColumn Header="Recipe Id" Binding="{Binding RecipeId}"/>
+
+				<DataGridTemplateColumn Header="Unlock Type">
+					<DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<ComboBox HorizontalAlignment="Stretch"
+									  SelectedItem="{Binding UnlockType, Converter={StaticResource TypeConverter}, Mode=TwoWay}"
+									  ItemsSource="{Binding #DGrid.DataContext.TypeOptions}"
+									  />
+						</DataTemplate>
+					</DataGridTemplateColumn.CellTemplate>
+				</DataGridTemplateColumn>
+				<DataGridTextColumn Width="5" Header="" Binding="{Binding UnlockType, Converter={StaticResource TypeConverter}}" IsReadOnly="True"/>
+
+				<DataGridTemplateColumn Header="Rank">
+					<DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<ComboBox HorizontalAlignment="Stretch"
+									  SelectedItem="{Binding Rank, Converter={StaticResource RankConverter}, Mode=TwoWay}"
+									  ItemsSource="{Binding #DGrid.DataContext.RankOptions}"
+									  />
+						</DataTemplate>
+					</DataGridTemplateColumn.CellTemplate>
+				</DataGridTemplateColumn>
+				<DataGridTextColumn Width="5" Header="" Binding="{Binding Rank, Converter={StaticResource RankConverter}}" IsReadOnly="True"/>
+
+				<DataGridTextColumn Header="" Binding="{Binding Item1}" IsReadOnly="True"/>
+				<DataGridTextColumn Header="Item1 Id" Binding="{Binding Item1Id}"/>
+				<DataGridTextColumn Header="" Binding="{Binding Item2}" IsReadOnly="True"/>
+				<DataGridTextColumn Header="Item2 Id" Binding="{Binding Item2Id}"/>
+
+				<DataGridTextColumn Header="" Binding="{Binding Material1}" IsReadOnly="True"/>
+				<DataGridTextColumn Header="Material1 Id" Binding="{Binding Material1Id}"/>
+				<DataGridTextColumn Header="Material1 Count" Binding="{Binding Material1Count}"/>
+				<DataGridTextColumn Header="" Binding="{Binding Material2}" IsReadOnly="True"/>
+				<DataGridTextColumn Header="Material2 Id" Binding="{Binding Material2Id}"/>
+				<DataGridTextColumn Header="Material3 Count" Binding="{Binding Material2Count}"/>
+				<DataGridTextColumn Header="" Binding="{Binding Material3}" IsReadOnly="True"/>
+				<DataGridTextColumn Header="Material3 Id" Binding="{Binding Material3Id}"/>
+				<DataGridTextColumn Header="Material3 Count" Binding="{Binding Material3Count}"/>
+				<DataGridTextColumn Header="" Binding="{Binding Material4}" IsReadOnly="True"/>
+				<DataGridTextColumn Header="Material4 Id" Binding="{Binding Material4Id}"/>
+				<DataGridTextColumn Header="Material4 Count" Binding="{Binding Material4Count}"/>
+				<DataGridTextColumn Header="" Binding="{Binding Material5}" IsReadOnly="True"/>
+				<DataGridTextColumn Header="Material5 Id" Binding="{Binding Material5Id}"/>
+				<DataGridTextColumn Header="Material5 Count" Binding="{Binding Material5Count}"/>
+				<DataGridTextColumn Header="" Binding="{Binding Material6}" IsReadOnly="True"/>
+				<DataGridTextColumn Header="Material6 Id" Binding="{Binding Material6Id}"/>
+				<DataGridTextColumn Header="Material6 Count" Binding="{Binding Material6Count}"/>
+
+			</DataGrid.Columns>
+
+		</DataGrid>
+		<Grid Grid.Row="2" ColumnDefinitions="*,*">
+			<StackPanel Grid.Column="0" Orientation="Horizontal">
+			</StackPanel>
+			<StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+				<Button Click="Button_Save" Margin="0,0,30,0">Save</Button>
+			</StackPanel>
+		</Grid>
+	</Grid>
+	
+</UserControl>

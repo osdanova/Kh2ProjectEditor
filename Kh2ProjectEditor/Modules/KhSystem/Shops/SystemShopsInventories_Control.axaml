@@ -13,10 +13,11 @@
 			SelectionMode="Single" SelectionChanged="InvGrid_SelectionChanged">
 
 			<DataGrid.Columns>
-				<DataGridTextColumn Binding="{Binding UnlockEventId}">
+				<DataGridTextColumn Header="" Binding="{Binding AddMenuFlagName}" IsReadOnly="True"/>
+				<DataGridTextColumn Binding="{Binding AddMenuFlagId}">
 					<DataGridTextColumn.HeaderTemplate>
 						<DataTemplate>
-							<Label Content="Unlock Event Id" ToolTip.Tip="Event required to unlock inventory. Check Synthesis > Unlock Conditions"/>
+							<Label Content="Add Menu Flag Id" ToolTip.Tip="Event required to unlock inventory. Check Synthesis > Unlock Conditions"/>
 						</DataTemplate>
 					</DataGridTextColumn.HeaderTemplate>
 				</DataGridTextColumn>

@@ -32,6 +32,7 @@ namespace Kh2ProjectEditor.Services
             FileSystem_Service.Instance.LoadFromProject();
             FileBattle_Service.Instance.LoadFromProject();
             FileJiminy_Service.Instance.LoadFromProject();
+            FileMixData_Service.Instance.LoadFromProject();
             FileObjentry_Service.Instance.LoadFromProject();
         }
 

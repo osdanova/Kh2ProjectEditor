@@ -31,7 +31,7 @@ namespace Kh2ProjectEditor.Modules.KhSystem.Shops
         public string ObjectDesc => DataFetcher.GetObjectDescription((uint)shopkeeperObjectId);
         public string Name => Message_Service.Instance.GetSysText(NameId);
         public string SignalName => DataFetcher.GetSignalName((byte)gameSignalId);
-        public string MenuFlagName => DataFetcher.GetMenuFlagName((byte)menuFlagId);
+        public string MenuFlagName => DataFetcher.GetMenuFlagName((sbyte)menuFlagId);
 
         public ObservableCollection<SystemShopsInventory_Wrapper> Inventories { get; set; }
 

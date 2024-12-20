@@ -62,10 +62,10 @@
 				<MenuItem Header="Puzzle" Click="MenuItem_JiminyPuzz"></MenuItem>
 			</MenuItem>
 			<MenuItem Header="Synthesis">
-				<MenuItem Header="Recipes"></MenuItem>
-				<MenuItem Header="Unlock Conditions"></MenuItem>
-				<MenuItem Header="Levels"></MenuItem>
-				<MenuItem Header="Experience"></MenuItem>
+				<MenuItem Header="Recipes" Click="MenuItem_MixDataReci"></MenuItem>
+				<MenuItem Header="Unlock Conditions" Click="MenuItem_MixDataCond"></MenuItem>
+				<MenuItem Header="Levels" Click="MenuItem_MixDataLeve"></MenuItem>
+				<MenuItem Header="Experience" Click="MenuItem_MixDataExp"></MenuItem>
 			</MenuItem>
 			<MenuItem Header="Object Entries" Click="MenuItem_ObjectEntries"></MenuItem>
 			<MenuItem Header="Tools">

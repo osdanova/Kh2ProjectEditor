@@ -110,7 +110,14 @@ namespace Kh2ProjectEditor.Utils
             return (!BonusLevelsDesc_Dictionary.Instance.ContainsKey(entryId)) ? "<NOT_FOUND>" : BonusLevelsDesc_Dictionary.Instance[entryId];
         }
 
-        public static string GetMenuFlagName(byte entryId) => (!MenuFlags_Dictionary.Instance.ContainsKey(entryId)) ? "<NOT_FOUND>" : MenuFlags_Dictionary.Instance[entryId];
+        public static string GetMenuFlagName(sbyte entryId)
+        {
+            if (entryId == -1)
+            {
+                return "-";
+            }
+            return (!MenuFlags_Dictionary.Instance.ContainsKey(entryId)) ? "<NOT_FOUND>" : MenuFlags_Dictionary.Instance[entryId];
+        }
         public static string GetSignalName(byte entryId) => (!Signals_Dictionary.Instance.ContainsKey(entryId)) ? "<NOT_FOUND>" : Signals_Dictionary.Instance[entryId];
         public static string GetBonusLevelName(byte entryId) => (!BonusLevels_Dictionary.Instance.ContainsKey(entryId)) ? "<NOT_FOUND>" : BonusLevels_Dictionary.Instance[entryId];
 

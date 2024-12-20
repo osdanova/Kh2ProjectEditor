@@ -94,7 +94,7 @@ namespace Kh2ProjectEditor.Services.Files
         }
 
         // Saves the given subfile to the system file
-        public void SaveBarFile(string filename, string prefFilename = "")
+        public void SaveBarFile(string filename)
         {
             foreach (BinaryArchive.Entry entry in BattleBar.Entries)
             {
