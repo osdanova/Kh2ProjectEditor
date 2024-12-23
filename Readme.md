@@ -33,6 +33,11 @@ Some column headers will display a tooltip with extra information when hovered o
 
 ## Notes
 
-* This is an early version, there's still a lot of work to do. Try the KH2FMEditor app or OpenKh tools for other features.
-* Currently the us messages are used by default and can be changed.
+* This is an early version, there's still a lot of work to do. Check out the KH2FMEditor app or OpenKh tools for other features.
+* Currently the us messages are used by default and can't be changed.
 * Currently entries can't be added or removed, only edited.
+
+## Additional Credits
+
+* [Re:Collection](https://televo.github.io/kingdom-hearts-recollection/): App icon from Televo's amazing collection.
+* [MemorySharp](https://github.com/JamesMenetrey/MemorySharp): A memory editing library (Compiled from Github's v2 branch for x64 compatibility) 
