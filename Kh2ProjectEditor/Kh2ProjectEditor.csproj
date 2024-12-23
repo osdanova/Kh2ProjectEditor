@@ -48,4 +48,14 @@
   <ItemGroup>
     <UpToDateCheckInput Remove="Modules\Jiminy\Limits\JiminyLimits_Control.axaml" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Modules\Tools\GameState\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Binarysharp.MSharp">
+      <HintPath>..\ExternalLibs\MemorySharp64\Binarysharp.MSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>

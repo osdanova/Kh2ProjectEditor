@@ -11,6 +11,11 @@ namespace Kh2ProjectEditor.Views
         [ObservableProperty]
         public string gameHookInfo = "Game not hooked";
 
+        public GameHook_Service GHService { get => GameHook_Service.Instance; }
+        public Process_Service ProcService { get => Process_Service.Instance; }
+
+        public bool tess {  get; set; }
+
 
         public void LoadProjectFolder(string selectedFolder)
         {

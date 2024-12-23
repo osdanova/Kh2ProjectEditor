@@ -70,7 +70,8 @@
 			<MenuItem Header="Object Entries" Click="MenuItem_ObjectEntries"></MenuItem>
 			<MenuItem Header="Tools">
 				<MenuItem Header="BAR Editor" Click="MenuItem_ToolsBarEditor"></MenuItem>
-				<MenuItem Header="TEST" Click="MenuItem_ToolsTest"></MenuItem>
+				<MenuItem Header="Entity List" Click="MenuItem_ToolsEntityList" IsVisible="False"></MenuItem>
+				<MenuItem Header="TEST" Click="MenuItem_ToolsTest" IsVisible="False"></MenuItem>
 			</MenuItem>
 		</Menu>
 
@@ -82,7 +83,8 @@
 				<Button Content="{Binding ProjectPath}" Click="Button_ProjectPath"></Button>
 			</StackPanel>
 			<!-- Game Hook info -->
-			<StackPanel Grid.Column="1" HorizontalAlignment="Right">
+			<StackPanel Grid.Column="1" HorizontalAlignment="Right" IsVisible="False">
+				<CheckBox IsChecked="{Binding ProcService.IsAlive}"></CheckBox>
 				<Label Content="{Binding GameHookInfo}"></Label>
 			</StackPanel>
 		</Grid>

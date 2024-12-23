@@ -5,6 +5,6 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Kh2ProjectEditor.Test_Control">
 
-	<Button DragDrop.AllowDrop="True">TEST</Button>
+	<Button DragDrop.AllowDrop="True" Click="Button_Click">TEST</Button>
 	
 </UserControl>

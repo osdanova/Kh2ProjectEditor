@@ -1,6 +1,7 @@
 using Avalonia.Controls;
 using Avalonia.Input;
 using Kh2ProjectEditor.Modules.Tools.Test;
+using Kh2ProjectEditor.Services;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -62,5 +63,12 @@ public partial class Test_Control : UserControl
                 Debug.WriteLine(to.id + "\t" + to.name);
             }
         }
+    }
+
+    private void Button_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    {
+        //GameHook_Service.Instance.DetectAndHook();
+        //MemSharpTest.DetectAndHook();
+        Process_Service.Instance.AutoDetect();
     }
 }

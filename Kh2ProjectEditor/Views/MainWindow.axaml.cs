@@ -97,4 +97,5 @@ public partial class MainWindow : Window
     ******************************************/
     private void MenuItem_ToolsBarEditor(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new BarEditor_Control();
     private void MenuItem_ToolsTest(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new Test_Control();
+    private void MenuItem_ToolsEntityList(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new ToolsEntityList_Control();
 }
