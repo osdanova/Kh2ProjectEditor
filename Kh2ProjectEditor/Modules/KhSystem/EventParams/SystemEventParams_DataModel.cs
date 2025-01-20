@@ -1,4 +1,5 @@
-﻿using Kh2ProjectEditor.Services;
+﻿using Kh2ProjectEditor.Modules.KhSystem.Skeleton;
+using Kh2ProjectEditor.Services;
 using Kh2ProjectEditor.Services.Files;
 using KhLib.Kh2.KhSystem;
 using System.Collections.ObjectModel;
@@ -10,7 +11,7 @@ namespace Kh2ProjectEditor.Modules.KhSystem.EventParams
         /******************************************
          * Data
          ******************************************/
-        internal ObservableCollection<EventParamsFile.Entry> LoadedEntries { get; set; }
+        internal ObservableCollection<SystemEventParams_Wrapper> LoadedEntries { get; set; }
         /******************************************
          * View settings
          ******************************************/
@@ -18,7 +19,7 @@ namespace Kh2ProjectEditor.Modules.KhSystem.EventParams
 
         public SystemEventParams_DataModel()
         {
-            LoadedEntries = new ObservableCollection<EventParamsFile.Entry>();
+            LoadedEntries = new ObservableCollection<SystemEventParams_Wrapper>();
             LoadFromFile();
         }
 
@@ -37,16 +38,16 @@ namespace Kh2ProjectEditor.Modules.KhSystem.EventParams
             LoadedEntries.Clear();
             foreach (EventParamsFile.Entry entry in evtpFile.Entries)
             {
-                LoadedEntries.Add(entry);
+                LoadedEntries.Add(new SystemEventParams_Wrapper(entry));
             }
         }
 
         public void SaveFile()
         {
             FileSystem_Service.Instance.EvtpFile.Entries.Clear();
-            foreach (EventParamsFile.Entry entry in LoadedEntries)
+            foreach (SystemEventParams_Wrapper wrapper in LoadedEntries)
             {
-                FileSystem_Service.Instance.EvtpFile.Entries.Add(entry);
+                FileSystem_Service.Instance.EvtpFile.Entries.Add(wrapper.ToEntry());
             }
 
             FileSystem_Service.Instance.SaveBarFile("evtp");

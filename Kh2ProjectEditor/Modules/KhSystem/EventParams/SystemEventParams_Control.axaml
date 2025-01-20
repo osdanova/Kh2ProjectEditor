@@ -17,6 +17,7 @@
 				<DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
 				<DataGridTextColumn Header="UnkBitflag" Binding="{Binding UnkBitflag}"/>
 				<DataGridTextColumn Header="Unk1" Binding="{Binding Unk1}"/>
+				<!--<DataGridTextColumn Header="" Binding="{Binding Unk2Desc}"/>-->
 				<DataGridTextColumn Header="Unk2" Binding="{Binding Unk2}"/>
 			</DataGrid.Columns>
 
