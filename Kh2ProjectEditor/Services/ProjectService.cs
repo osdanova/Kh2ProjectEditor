@@ -49,6 +49,8 @@ namespace Kh2ProjectEditor.Services
         public bool JiminyExists => IsProjectLoaded && File.Exists(PathJiminy);
         public string PathMixData => Path.Combine(ProjectPath, "mixdata.bar");
         public bool MixDataExists => IsProjectLoaded && File.Exists(PathMixData);
+        public string PathLocalSet => Path.Combine(ProjectPath, "07localset.bin");
+        public bool LocalSetExists => IsProjectLoaded && File.Exists(PathLocalSet);
 
         public string PathMsgSysUs => Path.Combine([ProjectPath, "msg", "us", "sys.bar"]);
         public string PathMsgJmUs => Path.Combine([ProjectPath, "msg", "us", "jm.bar"]);

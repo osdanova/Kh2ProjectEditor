@@ -31,6 +31,12 @@
 		<DataGrid Grid.Row="1" Margin="20" Name="DGrid"
 					ItemsSource="{Binding DisplayAreaInfos, Mode=TwoWay}"
 					GridLinesVisibility="All" BorderThickness="1" BorderBrush="Gray">
+			<DataGrid.ContextMenu>
+				<ContextMenu>
+					<MenuItem Header="Add" Click="Grid_Add"/>
+					<MenuItem Header="Remove" Click="Grid_Remove"/>
+				</ContextMenu>
+			</DataGrid.ContextMenu>
 
 			<DataGrid.Columns>
 

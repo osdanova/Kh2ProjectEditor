@@ -1,0 +1,51 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:common="clr-namespace:Kh2ProjectEditor.Modules.Common"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Kh2ProjectEditor.LocalSet_Control"
+			 Name="ThisControl">
+
+	<UserControl.Resources>
+		<common:World_Converter x:Key="WorldConverter"/>
+	</UserControl.Resources>
+
+	<Grid RowDefinitions="30,*,50">
+		<StackPanel Grid.Row="0" Orientation="Horizontal" Margin="20,0,0,0">
+			<ComboBox HorizontalAlignment="Stretch"
+									  SelectedItem="{Binding SelectedWorld, Converter={StaticResource WorldConverter}, Mode=TwoWay}"
+                                      ItemsSource="{Binding #ThisControl.DataContext.WorldOptions}"
+									  />
+		</StackPanel>
+		<!-- TABLE -->
+		<DataGrid Grid.Row="1" Margin="20" Name="DGrid"
+					ItemsSource="{Binding LoadedEntries, Mode=TwoWay}"
+					GridLinesVisibility="All" BorderThickness="1" BorderBrush="Gray" SelectionMode="Single">
+			
+			<DataGrid.ContextMenu>
+				<ContextMenu>
+					<MenuItem Header="Add Entry" Click="Context_Add" />
+					<MenuItem Header="Remove Entry" Click="Context_Remove" />
+				</ContextMenu>
+			</DataGrid.ContextMenu>
+
+			<DataGrid.Columns>
+
+				<!-- Id -->
+				<DataGridTextColumn Header="Id" Binding="{Binding LocalSetId}"/>
+				<DataGridTextColumn Header="Area Id" Binding="{Binding AreaId}"/>
+
+			</DataGrid.Columns>
+
+		</DataGrid>
+		<Grid Grid.Row="2" ColumnDefinitions="*,*">
+			<StackPanel Grid.Column="0" Orientation="Horizontal">
+			</StackPanel>
+			<StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+				<Button Click="Button_Save" Margin="0,0,30,0">Save</Button>
+			</StackPanel>
+		</Grid>
+	</Grid>
+	
+</UserControl>

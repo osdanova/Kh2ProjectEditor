@@ -67,6 +67,9 @@
 				<MenuItem Header="Levels" Click="MenuItem_MixDataLeve"></MenuItem>
 				<MenuItem Header="Experience" Click="MenuItem_MixDataExp"></MenuItem>
 			</MenuItem>
+			<MenuItem Header="Misc.">
+				<MenuItem Header="Local Set" Click="MenuItem_LocalSet"></MenuItem>
+			</MenuItem>
 			<MenuItem Header="Object Entries" Click="MenuItem_ObjectEntries"></MenuItem>
 			<MenuItem Header="Tools">
 				<MenuItem Header="BAR Editor" Click="MenuItem_ToolsBarEditor"></MenuItem>

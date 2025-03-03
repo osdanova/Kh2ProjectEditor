@@ -93,6 +93,11 @@ public partial class MainWindow : Window
     private void MenuItem_MixDataExp(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new MixDataExperience_Control();
 
     /******************************************
+    * Misc.
+    ******************************************/
+    private void MenuItem_LocalSet(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new LocalSet_Control();
+
+    /******************************************
     * Tools
     ******************************************/
     private void MenuItem_ToolsBarEditor(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new BarEditor_Control();

@@ -37,6 +37,7 @@ namespace Kh2ProjectEditor.Modules.KhSystem.AreaInfo
         [ObservableProperty] public byte command;
         public string RoomName => DataFetcher.GetWorldRoomName(world, room);
 
+        public SystemAreaInfo_Wrapper() { }
 
         public SystemAreaInfo_Wrapper(AreaInfoFile.AreaInfo entry)
         {

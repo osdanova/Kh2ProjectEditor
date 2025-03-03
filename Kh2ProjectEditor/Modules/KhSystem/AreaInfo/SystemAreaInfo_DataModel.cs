@@ -85,6 +85,17 @@ namespace Kh2ProjectEditor.Modules.KhSystem.AreaInfo
             }
         }
 
+        public void AddEntry()
+        {
+            LoadedWorldInfos[(byte)SelectedWorld].Add(new SystemAreaInfo_Wrapper());
+            ApplyFilters();
+        }
+        public void RemoveEntry(SystemAreaInfo_Wrapper entry)
+        {
+            LoadedWorldInfos[(byte)SelectedWorld].Remove(entry);
+            ApplyFilters();
+        }
+
         public void SaveFile()
         {
             FileSystem_Service.Instance.ArifFile.WorldInfos.Clear();
