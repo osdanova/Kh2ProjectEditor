@@ -67,6 +67,10 @@
 				<MenuItem Header="Levels" Click="MenuItem_MixDataLeve"></MenuItem>
 				<MenuItem Header="Experience" Click="MenuItem_MixDataExp"></MenuItem>
 			</MenuItem>
+			<MenuItem Header="Progress">
+				<MenuItem Header="Progress Scripts" Click="MenuItem_ProgressScripts"></MenuItem>
+				<MenuItem Header="Disable Area" Click="MenuItem_ProgressDsa"></MenuItem>
+			</MenuItem>
 			<MenuItem Header="Misc.">
 				<MenuItem Header="Local Set" Click="MenuItem_LocalSet"></MenuItem>
 			</MenuItem>

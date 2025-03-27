@@ -1,0 +1,70 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:common="clr-namespace:Kh2ProjectEditor.Modules.Common"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Kh2ProjectEditor.ProgressScripts_Control"
+			 Name="ThisControl">
+
+	<UserControl.Resources>
+		<common:World_Converter x:Key="WorldConverter"/>
+	</UserControl.Resources>
+
+	<Grid RowDefinitions="40,*,50">
+		<StackPanel Grid.Row="0" Orientation="Horizontal" Margin="20,0,0,0">
+			<ComboBox HorizontalAlignment="Stretch"
+									  SelectedItem="{Binding SelectedWorld, Converter={StaticResource WorldConverter}, Mode=TwoWay}"
+                                      ItemsSource="{Binding #ThisControl.DataContext.WorldOptions}"
+									  />
+		</StackPanel>
+		<!-- TABLE -->
+		<Grid Grid.Row="1" ColumnDefinitions="*,100">
+			<Grid Grid.Column="0" ColumnDefinitions="*,500">
+				<TextBox Grid.Column="0" Text="{Binding DisplayScript, Mode=TwoWay}"/>
+				<ScrollViewer Grid.Column="1">
+					<TextBlock TextWrapping="Wrap" Padding="10">
+						* END
+						<LineBreak/><LineBreak/>* AREA_SET
+						<LineBreak/>Sets the room to be loaded. 4 shorts used as 2 Ids to sets. Each set has a Map, Battle and Event (2 ushorts each) [CurrentSetId,SetSetId].
+						<LineBreak/>Can do multiple entries
+						<LineBreak/><LineBreak/>* DISABLE_AREA_DISABLE
+						<LineBreak/>Disables the area. 3 shorts. [DsaEntryId,Reason1TextId,Reason2TextId]
+						<LineBreak/><LineBreak/>* DISABLE_AREA_ENABLE
+						<LineBreak/>Enables the area. 1 short. [DsaEntryId]
+						<LineBreak/><LineBreak/>* DISABLE_AREA_LOST
+						<LineBreak/>Unsure. 1 short. [DsaEntryId]
+						<LineBreak/><LineBreak/>* DISABLE_AREA_RESET
+						<LineBreak/>Resets the disable area state. 1 short. [DsaEntryId]
+						<LineBreak/><LineBreak/>* BGM_SET
+						<LineBreak/>Sets the BGM. 1 short. [SongId]
+						<LineBreak/><LineBreak/>* PROGRESS_RESET
+						<LineBreak/>Resets a progress flag. 1 short. [ProgressFlagId]
+						<LineBreak/>Can do multiple
+						<LineBreak/><LineBreak/>* GAME_FLAG_SET
+						<LineBreak/>Sets the game(menu) flag. 1 short. [MenuFlagId]
+						<LineBreak/>Can do multiple
+						<LineBreak/><LineBreak/>* GAME_FLAG_RESET
+						<LineBreak/>Resets the game(menu) flag. 1 short. [MenuFlagId]
+						<LineBreak/>Can do multiple
+						<LineBreak/><LineBreak/>* PROGRESS_SET
+						<LineBreak/>Sets a progress flag. 1 short. [ProgressFlagId]
+						<LineBreak/>Can do multiple
+						<LineBreak/><LineBreak/>* WORLDSTATE_SET
+						<LineBreak/>Sets the world state. 1 short (2 bytes). [X,Y]
+					</TextBlock>
+				</ScrollViewer>
+			</Grid>
+			<ListBox Grid.Column="1" ItemsSource="{Binding ScriptList}" SelectedIndex="{Binding SelectedIndex}"/>
+		</Grid>
+		<Grid Grid.Row="2" ColumnDefinitions="*,*">
+			<StackPanel Grid.Column="0" Orientation="Horizontal">
+			</StackPanel>
+			<StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+				<Button Click="Button_SaveScript" Margin="0,0,30,0">Save Script</Button>
+				<Button Click="Button_SaveFile" Margin="0,0,30,0">Save File</Button>
+			</StackPanel>
+		</Grid>
+	</Grid>
+	
+</UserControl>

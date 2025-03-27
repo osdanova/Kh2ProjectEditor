@@ -34,6 +34,7 @@ namespace Kh2ProjectEditor.Services
             FileJiminy_Service.Instance.LoadFromProject();
             FileMixData_Service.Instance.LoadFromProject();
             FileObjentry_Service.Instance.LoadFromProject();
+            FileProgress_Service.Instance.LoadFromProject();
         }
 
         /******************************************
@@ -51,6 +52,8 @@ namespace Kh2ProjectEditor.Services
         public bool MixDataExists => IsProjectLoaded && File.Exists(PathMixData);
         public string PathLocalSet => Path.Combine(ProjectPath, "07localset.bin");
         public bool LocalSetExists => IsProjectLoaded && File.Exists(PathLocalSet);
+        public string PathProgress => Path.Combine(ProjectPath, "00progress.bin");
+        public bool ProgressExists => IsProjectLoaded && File.Exists(PathProgress);
 
         public string PathMsgSysUs => Path.Combine([ProjectPath, "msg", "us", "sys.bar"]);
         public string PathMsgJmUs => Path.Combine([ProjectPath, "msg", "us", "jm.bar"]);

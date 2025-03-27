@@ -93,6 +93,12 @@ public partial class MainWindow : Window
     private void MenuItem_MixDataExp(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new MixDataExperience_Control();
 
     /******************************************
+    * Progress
+    ******************************************/
+    private void MenuItem_ProgressScripts(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new ProgressScripts_Control();
+    private void MenuItem_ProgressDsa(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new ProgressDisableArea_Control();
+
+    /******************************************
     * Misc.
     ******************************************/
     private void MenuItem_LocalSet(object? sender, Avalonia.Interactivity.RoutedEventArgs e) => ContentFrame.Content = new LocalSet_Control();
