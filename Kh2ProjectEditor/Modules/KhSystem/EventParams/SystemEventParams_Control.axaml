@@ -2,8 +2,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:local="clr-namespace:Kh2ProjectEditor.Modules.KhSystem.EventParams"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Kh2ProjectEditor.SystemEventParams_Control">
+
+	<UserControl.Resources>
+		<local:SystemEventParamsFadeType_Converter x:Key="FadeTypeConverter"/>
+	</UserControl.Resources>
 
 	<Grid RowDefinitions="30,*,50">
 		<StackPanel Grid.Row="0" Orientation="Horizontal" Margin="20,0,0,0">
@@ -15,10 +20,28 @@
 
 			<DataGrid.Columns>
 				<DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-				<DataGridTextColumn Header="UnkBitflag" Binding="{Binding UnkBitflag}"/>
-				<DataGridTextColumn Header="Unk1" Binding="{Binding Unk1}"/>
-				<!--<DataGridTextColumn Header="" Binding="{Binding Unk2Desc}"/>-->
-				<DataGridTextColumn Header="Unk2" Binding="{Binding Unk2}"/>
+
+				<DataGridTemplateColumn Header="Fade Type">
+					<DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<ComboBox HorizontalAlignment="Stretch"
+									  SelectedItem="{Binding FadeType, Converter={StaticResource FadeTypeConverter}, Mode=TwoWay}"
+                                      ItemsSource="{Binding #DGrid.DataContext.FadeTypeOptions}"
+									  />
+						</DataTemplate>
+					</DataGridTemplateColumn.CellTemplate>
+				</DataGridTemplateColumn>
+				<DataGridTextColumn Width="5" Header="" Binding="{Binding FadeType, Converter={StaticResource FadeTypeConverter}}" IsReadOnly="True"/>
+
+				<DataGridCheckBoxColumn Header="Scene" Binding="{Binding Scene}"/>
+				<DataGridCheckBoxColumn Header="Stop" Binding="{Binding Stop}"/>
+				<DataGridCheckBoxColumn Header="Layer" Binding="{Binding Layer}"/>
+				<DataGridCheckBoxColumn Header="Control" Binding="{Binding Control}"/>
+				<DataGridCheckBoxColumn Header="Mask" Binding="{Binding Mask}"/>
+				<DataGridCheckBoxColumn Header="Sound" Binding="{Binding Sound}"/>
+				<DataGridCheckBoxColumn Header="Lockon" Binding="{Binding Lockon}"/>
+				<DataGridCheckBoxColumn Header="Hide Friend" Binding="{Binding HideFriend}"/>
+				<DataGridTextColumn Header="Fade Time (Frames)" Binding="{Binding FadeTime}"/>
 			</DataGrid.Columns>
 
 		</DataGrid>

@@ -1,8 +1,9 @@
-﻿using Kh2ProjectEditor.Modules.KhSystem.Skeleton;
-using Kh2ProjectEditor.Services;
+﻿using Kh2ProjectEditor.Services;
 using Kh2ProjectEditor.Services.Files;
 using KhLib.Kh2.KhSystem;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace Kh2ProjectEditor.Modules.KhSystem.EventParams
 {
@@ -15,7 +16,7 @@ namespace Kh2ProjectEditor.Modules.KhSystem.EventParams
         /******************************************
          * View settings
          ******************************************/
-        //public List<string> WorldOptions => new World_Converter().Options.Values.ToList();
+        public List<string> FadeTypeOptions => new SystemEventParamsFadeType_Converter().Options.Values.ToList();
 
         public SystemEventParams_DataModel()
         {
@@ -33,10 +34,10 @@ namespace Kh2ProjectEditor.Modules.KhSystem.EventParams
             LoadData(FileSystem_Service.Instance.EvtpFile);
         }
 
-        public void LoadData(EventParamsFile evtpFile)
+        public void LoadData(EventTypeFile evtpFile)
         {
             LoadedEntries.Clear();
-            foreach (EventParamsFile.Entry entry in evtpFile.Entries)
+            foreach (EventTypeFile.Entry entry in evtpFile.Entries)
             {
                 LoadedEntries.Add(new SystemEventParams_Wrapper(entry));
             }

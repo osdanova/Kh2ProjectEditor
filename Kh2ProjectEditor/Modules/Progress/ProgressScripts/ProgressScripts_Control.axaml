@@ -21,7 +21,7 @@
 		<!-- TABLE -->
 		<Grid Grid.Row="1" ColumnDefinitions="*,100">
 			<Grid Grid.Column="0" ColumnDefinitions="*,500">
-				<TextBox Grid.Column="0" Text="{Binding DisplayScript, Mode=TwoWay}"/>
+				<TextBox Grid.Column="0" Text="{Binding DisplayScript, Mode=TwoWay}" AcceptsReturn="True"/>
 				<ScrollViewer Grid.Column="1">
 					<TextBlock TextWrapping="Wrap" Padding="10">
 						* END

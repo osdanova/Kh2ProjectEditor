@@ -1,33 +1,53 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using Kh2ProjectEditor.Utils;
 using KhLib.Kh2.KhSystem;
+using static KhLib.Kh2.KhSystem.EventTypeFile;
 
 namespace Kh2ProjectEditor.Modules.KhSystem.EventParams
 {
     internal partial class SystemEventParams_Wrapper : ObservableObject
     {
         [ObservableProperty] public byte id;
-        [ObservableProperty] public byte unkBitflag;
-        [ObservableProperty] public int unk1;
-        [ObservableProperty] public ushort unk2;
-        //public string Unk2Desc => DataFetcher.GetProgressFlagDescription(Unk2); // Not in any msg text entries
+        [ObservableProperty] public FadeType fadeType;
+        [ObservableProperty] public bool scene;
+        [ObservableProperty] public bool stop;
+        [ObservableProperty] public bool layer;
+        [ObservableProperty] public bool control;
+        [ObservableProperty] public bool mask;
+        [ObservableProperty] public bool sound;
+        [ObservableProperty] public bool lockon;
+        [ObservableProperty] public bool hideFriend;
+        [ObservableProperty] public float fadeTime;
 
-        public SystemEventParams_Wrapper(EventParamsFile.Entry entry)
+        public SystemEventParams_Wrapper(EventTypeFile.Entry entry)
         {
             id = entry.Id;
-            unkBitflag = entry.UnkBitflag;
-            unk1 = entry.Unk1;
-            unk2 = entry.Unk2;
+            fadeType = entry.FadeType;
+            scene = entry.ConfigScene;
+            stop = entry.ConfigStop;
+            layer = entry.ConfigLayer;
+            control = entry.ConfigControl;
+            mask = entry.ConfigMask;
+            sound = entry.ConfigSound;
+            lockon = entry.ConfigLockon;
+            hideFriend = entry.ConfigHideFriend;
+            fadeTime = entry.FadeTime;
         }
 
-        public EventParamsFile.Entry ToEntry()
+        public EventTypeFile.Entry ToEntry()
         {
-            return new EventParamsFile.Entry
+            return new EventTypeFile.Entry
             {
                 Id = id,
-                UnkBitflag = unkBitflag,
-                Unk1 = unk1,
-                Unk2 = unk2
+                FadeType = fadeType,
+                ConfigScene = scene,
+                ConfigStop = stop,
+                ConfigLayer = layer,
+                ConfigControl = control,
+                ConfigMask = mask,
+                ConfigSound = sound,
+                ConfigLockon = lockon,
+                ConfigHideFriend = hideFriend,
+                FadeTime = fadeTime
             };
         }
     }

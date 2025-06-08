@@ -19,7 +19,7 @@ namespace Kh2ProjectEditor.Services.Files
         public FontStyleFile FtstFile { get; set; }
         public ShopsFile ShopFile { get; set; }
         public SkeletonFile SkltFile { get; set; }
-        public EventParamsFile EvtpFile { get; set; }
+        public EventTypeFile EvtpFile { get; set; }
         // Preferences
         public BinaryArchive PrefFile { get; set; }
         public PrefPlayerFile PrefPlyrFile { get; set; }
@@ -76,7 +76,7 @@ namespace Kh2ProjectEditor.Services.Files
                         SkltFile = SkeletonFile.Read(entry.File);
                         break;
                     case "evtp":
-                        EvtpFile = EventParamsFile.Read(entry.File);
+                        EvtpFile = EventTypeFile.Read(entry.File);
                         break;
 
                     case "pref":

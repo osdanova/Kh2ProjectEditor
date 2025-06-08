@@ -21,7 +21,7 @@
 				<MenuItem Header="Font Style" Click="MenuItem_SystemFontStyles"></MenuItem>
 				<MenuItem Header="Shops" Click="MenuItem_SystemShops"></MenuItem>
 				<MenuItem Header="Weapon Joints" Click="MenuItem_SystemSkeleton"></MenuItem>
-				<MenuItem Header="Event Params" Click="MenuItem_SystemEventParams"></MenuItem>
+				<MenuItem Header="Event Types" Click="MenuItem_SystemEventParams"></MenuItem>
 				<MenuItem Header="Preferences">
 					<MenuItem Header="Player" Click="MenuItem_SystemPrefPlayer"></MenuItem>
 					<MenuItem Header="Form Abilities" Click="MenuItem_SystemPrefFormAbilities"></MenuItem>
